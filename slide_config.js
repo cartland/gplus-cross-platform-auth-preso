@@ -1,11 +1,11 @@
 var SLIDE_CONFIG = {
   // Slide settings
   settings: {
-    title: 'Title Goes Here<br>Up To Two Lines',
-    subtitle: 'Subtitle Goes Here',
+    title: 'Authentication Models<br>For Social Apps',
+    subtitle: 'Google+ Platform',
     //eventInfo: {
     //  title: 'Google I/O',
-    //  date: '6/x/2013'
+    //  date: '5/16/2013'
     //},
     useBuilds: true, // Default: true. False will turn off slide animation builds.
     usePrettify: true, // Default: true
@@ -22,19 +22,19 @@ var SLIDE_CONFIG = {
 
   // Author information
   presenters: [{
-    name: 'Firstname Lastname',
-    company: 'Job Title<br>Google',
-    gplus: 'http://plus.google.com/1234567890',
-    twitter: '@yourhandle',
-    www: 'http://www.you.com',
-    github: 'http://github.com/you'
-  }/*, {
-    name: 'Second Name',
-    company: 'Job Title, Google',
-    gplus: 'http://plus.google.com/1234567890',
-    twitter: '@yourhandle',
-    www: 'http://www.you.com',
-    github: 'http://github.com/you'
-  }*/]
+    name: 'Chris Cartland',
+    company: 'Developer Programs Engineer, Google',
+    gplus: 'http://plus.google.com/+ChrisCartland',
+  //  twitter: '@yourhandle',
+  //  www: 'http://www.you.com',
+  //  github: 'http://github.com/you'
+  }, {
+    name: 'Francis Ma',
+    company: 'Product Manager, Google',
+    gplus: 'https://plus.google.com/110561195866999583986',
+  //  twitter: '@yourhandle',
+  //  www: 'http://www.you.com',
+  //  github: 'http://github.com/you'
+  }]
 };
 
