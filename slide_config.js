@@ -1,7 +1,7 @@
 var SLIDE_CONFIG = {
   // Slide settings
   settings: {
-    title: 'Authentication Models<br>For Social Apps',
+    title: 'Cross-Platform Auth<br>with Google+ Sign-In',
     subtitle: 'Google+ Platform',
     //eventInfo: {
     //  title: 'Google I/O',
