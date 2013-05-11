@@ -19,6 +19,7 @@ URL: https://code.google.com/p/io-2012-slides
   <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="stylesheet" media="all" href="theme/css/default.css">
   <link rel="stylesheet" media="all" href="theme/css/io2013.css">
+  <link rel="stylesheet" media="all" href="theme/css/cartland.css">
   <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
   <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
   <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
@@ -73,7 +74,7 @@ URL: https://code.google.com/p/io-2012-slides
     <hgroup>
       <h2>Talking about "auth"</h2>
     </hgroup>
-    <article>
+    <article style="float: left; width: 50%">
       <ul>
         <li>Authentication</li>
         <ul>
@@ -84,17 +85,24 @@ URL: https://code.google.com/p/io-2012-slides
           <li>Permission to do something</li>
         </ul>
       </ul>
-    <!--
-      <img src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In">
-      -->
+    </article>
+    <article style="float:right; width:50%">
+      <img width="100%" src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In"><br />
     </article>
   </slide>
+
+<!--
+    <article style="float: left; width: 50%">
+    </article>
+    <article style="float:right; width:50%">
+      <img width="100%" src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In"><br />
+-->
 
   <slide>
     <hgroup>
       <h2>Don't Build Your Own Authentication!</h2>
     </hgroup>
-    <article>
+    <article style="float: left; width: 50%">
       <ul>
         <li>Lots to worry about</li>
         <ul>
@@ -105,9 +113,9 @@ URL: https://code.google.com/p/io-2012-slides
           <li>More...</li>
         </ul>
       </ul>
-    <!--
-      <img src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In">
-      -->
+    </article>
+    <article style="float:right; width:50%">
+      <img width="100%" src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In"><br />
     </article>
   </slide>
 
@@ -117,9 +125,7 @@ URL: https://code.google.com/p/io-2012-slides
       <h3>... but not the way you want.</h3>
     </hgroup>
     <article>
-    <!--
       <img src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In">
-      -->
     </article>
   </slide>
 
@@ -127,15 +133,15 @@ URL: https://code.google.com/p/io-2012-slides
     <hgroup>
       <h2>Use An Identity Provider</h2>
     </hgroup>
-    <article>
+    <article style="float: left; width:50%">
       <ul>
         <li>Easier for you and the user</li>
         <li>Can ask for authoriation for additional features</li>
         <li>A better way to reach your goal</li>
       </ul>
-    <!--
-      <img src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In">
-      -->
+    </article>
+    <article style="float:right; width:50%">
+      <img width="100%" src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In"><br />
     </article>
   </slide>
 
@@ -144,9 +150,7 @@ URL: https://code.google.com/p/io-2012-slides
       <h2></h2>
     </hgroup>
     <article>
-    <!--
       <img src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In">
-      -->
       <footer class="source">Google+ Sign-In Button</footer>
     </article>
   </slide>
@@ -163,19 +167,17 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Based on OAuth 2.0</h2>
     </hgroup>
     <article>
-    <!--
       <img src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In">
-      -->
       <footer class="source">OAuth 2.0</footer>
     </article>
   </slide>
 
   <slide>
     <hgroup>
-      <h2>Create Your Google API Console Project</h2>
+      <h2>Google API Console Project</h2>
       <h3>https://developers.google.com/console</h3>
     </hgroup>
-    <article>
+    <article style="float: left; width: 60%">
       <ul>
         <li>Create one project for your app with</li>
         <ul>
@@ -197,6 +199,9 @@ URL: https://code.google.com/p/io-2012-slides
           <td>Web</td><td>JavaScript Origins</td>
         </tr>
       </table>
+    </article>
+    <article style="float:right; width:40%">
+      <img width="100%" src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In"><br />
     </article>
   </slide>
 
@@ -230,9 +235,7 @@ URL: https://code.google.com/p/io-2012-slides
       <h3>The connecting lines require auth</h3>
     </hgroup>
     <article>
-    <!--
       <img src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In">
-      -->
       <footer class="source">Auth Triangle</footer>
     </article>
   </slide>
@@ -248,15 +251,15 @@ URL: https://code.google.com/p/io-2012-slides
     <hgroup>
       <h2>Client Auth</h2>
     </hgroup>
-    <article>
+    <article style="float: left; width: 25%">
       <ul>
         <li>Android</li>
         <li>iOS</li>
         <li>Web</li>
       </ul>
-    <!--
-      <img src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In">
-      -->
+    </article>
+    <article style="float:right; width:75%">
+      <img width="100%" src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In"><br />
       <footer class="source">Client Auth</footer>
     </article>
   </slide>
@@ -265,7 +268,7 @@ URL: https://code.google.com/p/io-2012-slides
     <hgroup>
       <h2>Android: Client Auth</h2>
     </hgroup>
-    <article>
+    <article style="float: left; width: 50%">
       <ul>
         <li>Managed via Google Play services API</li>
         <ul>
@@ -273,9 +276,9 @@ URL: https://code.google.com/p/io-2012-slides
         </ul>
         <li>Auth using Google accounts on the device</li>
       </ul>
-    <!--
-      <img src="images/chart.png" class="reflect" alt="Android Client Auth" title="Android Client Auth">
-      -->
+    </article>
+    <article style="float:right; width:50%">
+      <img width="100%" src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In"><br />
       <footer class="source">Android Client Auth</footer>
     </article>
   </slide>
@@ -285,17 +288,19 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Android: Client Auth</h2>
       <h3>Coincides with the Android Activity Lifecycle</h3>
     </hgroup>
-    <article>
-    <!--
-      <img src="images/chart.png" class="reflect" alt="Android Activity Lifecycle" title="Android Activity Lifecycle">
-      -->
+    <article style="float: left; width: 150px">
+      <img width="100%" src="images/android-connection-lifecycle.png" class="reflect" alt="Android Connection Lifecycle" title="Android Connection Lifecycle"><br />
+    </article>
+    <article style="float:right; width:70%">
       <pre class="prettyprint" data-lang="android">
-  mPlusClient = new PlusClient.Builder(this, this, this)
-    .setScopes(SCOPES).build();
-  findViewById(R.id.sign_in_button).setOnClickListener(this);
+
+mPlusClient = new PlusClient.Builder(this, this, this)
+  .setScopes(SCOPES).build();
+findViewById(R.id.sign_in_button)
+  .setOnClickListener(this);
 </pre>
       <pre class="prettyprint" data-lang="android">
-  mPlusClient.connect();
+mPlusClient.connect();
 </pre>
       <pre class="prettyprint" data-lang="xml">
 &lt;com.google.android.gms.common.SignInButton
@@ -304,7 +309,7 @@ URL: https://code.google.com/p/io-2012-slides
   android:layout_height="wrap_content" /&gt;
 </pre>
       <pre class="prettyprint" data-lang="android">
-  mPlusClient.disconnect();
+mPlusClient.disconnect();
 </pre>
     </article>
   </slide>
@@ -377,10 +382,8 @@ protected void onActivityResult(int requestCode,
       <h2>Android: Client Auth</h2>
       <h3>Connection Lifecycle</h3>
     </hgroup>
-    <article>
-    <!--
-      <img src="images/chart.png" class="reflect" alt="Resolution Lifecycle" title="Resolution Lifecycle">
-      -->
+    <article class="flexbox vcenter">
+      <img style="height:80%; margin-top:-35%;" src="images/PlusClient-Lifecycle.png" class="reflect" alt="Resolution Lifecycle" title="Resolution Lifecycle">
       <footer class="source">http://www.riskcompletefailure.com/2013/03/common-problems-with-google-sign-in-on.html</footer>
     </article>
   </slide>
@@ -389,14 +392,14 @@ protected void onActivityResult(int requestCode,
     <hgroup>
       <h2>iOS: Client Auth</h2>
     </hgroup>
-    <article>
+    <article style="float: left; width: 50%">
       <ul>
         <li>Integrate with Google+ iOS SDK</li>
         <li>SDK handles auth flows and token management</li>
       </ul>
-    <!--
-      <img src="images/chart.png" class="reflect" alt="iOS Client Auth" title="iOS Client Auth">
-      -->
+    </article>
+    <article style="float:right; width:50%">
+      <img width="100%" src="images/chart.png" class="reflect" alt="iOS Client Auth" title="iOS Client Auth">
       <footer class="source">iOS Client Auth</footer>
     </article>
   </slide>
@@ -479,15 +482,15 @@ protected void onActivityResult(int requestCode,
     <hgroup>
       <h2>Web: Client Auth</h2>
     </hgroup>
-    <article>
+    <article style="float: left; width: 50%">
       <ul>
         <li>Simply include the JavaScript client</li>
         <li>Add Google+ Sign-In Button</li>
         <li>Handle auth callback</li>
       </ul>
-    <!--
-      <img src="images/chart.png" class="reflect" alt="Web Client Auth" title="Web Client Auth">
-      -->
+    </article>
+    <article style="float:right; width:50%">
+      <img width="100%" src="images/chart.png" class="reflect" alt="Web Client Auth" title="Web Client Auth">
       <footer class="source">Web Client Auth</footer>
     </article>
   </slide>
@@ -544,14 +547,14 @@ function signinCallback(authResult) {
     <hgroup>
       <h2>Server Auth</h2>
     </hgroup>
-    <article>
+    <article style="float: left; width: 25%">
       <ul>
         <li>Android / iOS</li>
         <li>Web</li>
       </ul>
-    <!--
-      <img src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In">
-      -->
+    </article>
+    <article style="float:right; width:75%">
+      <img width="100%" src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In">
       <footer class="source">Server Auth</footer>
     </article>
   </slide>
@@ -713,7 +716,7 @@ Full code, including Java and C#, available in our Quickstarts
       <h2>Multiple Auth Systems</h2>
       <h3>Proprietary password, Google+, Facebook</h3> 
     </hgroup>
-    <article>
+    <article style="float: left; width: 70%">
       <ul>
         <li>Trickier to support multiple-auth systems</li>
         <ul>
@@ -726,7 +729,17 @@ Full code, including Java and C#, available in our Quickstarts
         </ul>
       </ul>
     </article>
+    <article style="float:right; width:30%; margin-top: 50%">
+      <img width="100%" src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In"><br />
+    </article>
   </slide>
+
+<!--
+    <article style="float: left; width: 50%">
+    </article>
+    <article style="float:right; width:50%">
+      <img width="100%" src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In"><br />
+-->
 
   <slide>
     <hgroup>
