@@ -177,7 +177,7 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
     <article>
       <ul>
-        <li>Create one project for your app with<li>
+        <li>Create one project for your app with</li>
         <ul>
           <li>Branding information</li>
           <li>Multiple clients</li>
@@ -202,13 +202,17 @@ URL: https://code.google.com/p/io-2012-slides
 
   <slide>
     <hgroup>
-      <h2>Cross-Platform Single Sign-On</h2>
+      <h2>Structuring your API Project correctly is important!</h2>
     </hgroup>
     <article>
       <ul>
-        <li>Single consent for clients of the same API Project</li>
-        <li>Google+ Sign-In automatically checks if user has previously authorized project</li>
-        <li>Also automatically initializes clients with auth token to facilitate SSO</li>
+        <li>Authorization is granted to your app, not a specific client</li>
+        <li>For Android & Web:</li>
+        <ul>
+          <li>Single user consent across clients</li>
+          <li>Google+ Sign-In automatically initializes clients with auth tokens, if available</li>
+          <li>Cross-platform Single Sign-On</li>
+        </ul>
       </ul>
     </article>
   </slide>
@@ -233,30 +237,6 @@ URL: https://code.google.com/p/io-2012-slides
     </article>
   </slide>
 
-  <slide>
-    <hgroup>
-      <h2>Auth Models</h2>
-    </hgroup>
-    <article>
-      <ul>
-        <li><font color="blue">Client auth</font></li>
-        <ul>
-          <li>Android</li>
-          <li>iOS</li>
-          <li>Web</li>
-        </ul>
-        <li><font color="green">Server auth</font></li>
-        <ul>
-          <li>Android/iOS<li>
-          <li>Web</li>
-        </ul>
-    <!--
-      <img src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In">
-      -->
-      <footer class="source">Auth Triangle</footer>
-    </article>
-  </slide>
-
   <slide class="segue dark nobackground">
     <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
     <hgroup class="auto-fadein">
@@ -269,8 +249,13 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Client Auth</h2>
     </hgroup>
     <article>
+      <ul>
+        <li>Android</li>
+        <li>iOS</li>
+        <li>Web</li>
+      </ul>
     <!--
-      <img src="images/chart.png" class="reflect" alt="Client Auth" title="Client Auth">
+      <img src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In">
       -->
       <footer class="source">Client Auth</footer>
     </article>
@@ -301,6 +286,9 @@ URL: https://code.google.com/p/io-2012-slides
       <h3>Coincides with the Android Activity Lifecycle</h3>
     </hgroup>
     <article>
+    <!--
+      <img src="images/chart.png" class="reflect" alt="Android Activity Lifecycle" title="Android Activity Lifecycle">
+      -->
       <pre class="prettyprint" data-lang="android">
   mPlusClient = new PlusClient.Builder(this, this, this)
     .setScopes(SCOPES).build();
@@ -318,12 +306,6 @@ URL: https://code.google.com/p/io-2012-slides
       <pre class="prettyprint" data-lang="android">
   mPlusClient.disconnect();
 </pre>
-    </article>
-    <article>
-    <!--
-      <img src="images/chart.png" class="reflect" alt="Android Activity Lifecycle" title="Android Activity Lifecycle">
-      -->
-      <footer class="source">Android Activity Lifecycle</footer>
     </article>
   </slide>
 
@@ -350,7 +332,7 @@ public void onConnected() {
   <slide>
     <hgroup>
       <h2>Android: Client Auth</h2>
-      <h3>Sign in the user onClick</h3>
+      <h3>Start Google Play services resolution onClick</h3>
     </hgroup>
     <article>
       <pre class="prettyprint" data-lang="android">
@@ -374,7 +356,7 @@ public void onClick(View view) {
   <slide>
     <hgroup>
       <h2>Android: Client Auth</h2>
-      <h3>Sign in the user onClick</h3>
+      <h3>Call connect() when Google Play services is done</h3>
     </hgroup>
     <article>
       <pre class="prettyprint" data-lang="android">
@@ -387,6 +369,19 @@ protected void onActivityResult(int requestCode,
   }
 }
 </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Android: Client Auth</h2>
+      <h3>Connection Lifecycle</h3>
+    </hgroup>
+    <article>
+    <!--
+      <img src="images/chart.png" class="reflect" alt="Resolution Lifecycle" title="Resolution Lifecycle">
+      -->
+      <footer class="source">http://www.riskcompletefailure.com/2013/03/common-problems-with-google-sign-in-on.html</footer>
     </article>
   </slide>
 
@@ -409,6 +404,7 @@ protected void onActivityResult(int requestCode,
   <slide>
     <hgroup>
       <h2>iOS: Client Auth</h2>
+      <h3>Setup Sign-In</h3>
     </hgroup>
     <article>
       <pre class="prettyprint" data-lang="objective-c">
@@ -455,6 +451,7 @@ protected void onActivityResult(int requestCode,
   <slide>
     <hgroup>
       <h2>iOS: Client Auth</h2>
+      <!--<h3>Receive Sign-In Information</h3>-->
     </hgroup>
     <article>
       <pre class="prettyprint" data-lang="objective-c">
@@ -501,7 +498,7 @@ protected void onActivityResult(int requestCode,
       <h3>Add Sign-In Button element and include JavaScript</h3>
     </hgroup>
     <article>
-      <pre class="prettyprint" data-lang="HTML/JavaScript">
+      <pre class="prettyprint" data-lang="HTML">
 &lt;span id="signinButton"&gt;
   &lt;span
     class="g-signin"
@@ -536,30 +533,6 @@ function signinCallback(authResult) {
     </article>
   </slide>
 
-  <slide>
-    <hgroup>
-      <h2>Auth Models</h2>
-    </hgroup>
-    <article>
-      <ul>
-        <li><font color="blue">Client auth</font></li>
-        <ul>
-          <li>Android</li>
-          <li>iOS</li>
-          <li>Web</li>
-        </ul>
-        <li><font color="green">Server auth</font></li>
-        <ul>
-          <li>Android/iOS<li>
-          <li>Web</li>
-        </ul>
-    <!--
-      <img src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In">
-      -->
-      <footer class="source">Auth Triangle</footer>
-    </article>
-  </slide>
-
   <slide class="segue dark nobackground">
     <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
     <hgroup class="auto-fadein">
@@ -572,8 +545,12 @@ function signinCallback(authResult) {
       <h2>Server Auth</h2>
     </hgroup>
     <article>
+      <ul>
+        <li>Android / iOS</li>
+        <li>Web</li>
+      </ul>
     <!--
-      <img src="images/chart.png" class="reflect" alt="Server Auth" title="Server Auth">
+      <img src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In">
       -->
       <footer class="source">Server Auth</footer>
     </article>
@@ -582,13 +559,14 @@ function signinCallback(authResult) {
   <slide>
     <hgroup>
       <h2>Android Auth To Server</h2>
-      <h3>Send access token to server</h3>
+      <h3>Send Access Token To Server</h3>
     </hgroup>
     <article>
       <ul>
         <li>Send tokens securely</li>
-        <li>Access tokens are bearer tokens and everyone can use them</li>
-        <li>Access tokens last one hour</li>
+        <li>Access Tokens are bearer tokens and anyyone can use them</li>
+        <li>Access Tokens last one hour</li>
+      </ul>
       <pre class="prettyprint" data-lang="Android">
 try {
   <b>String access_token = GoogleAuthUtil.getToken(this,
@@ -611,8 +589,9 @@ try {
     <article>
       <ul>
         <li>Send tokens securely</li>
-        <li>Access tokens are bearer tokens and everyone can use them</li>
-        <li>Access tokens last one hour</li>
+        <li>Access Tokens are bearer tokens and anyyone can use them</li>
+        <li>Access Tokens last one hour</li>
+      </ul>
       <pre class="prettyprint" data-lang="Objective-C">
 - (void)finishedWithAuth:(GTMOAuth2Authentication *)auth
                    error:(NSError *)error {
@@ -658,7 +637,7 @@ gplus_id = result['user_id']
   <slide>
     <hgroup>
       <h2>Web Auth To Server</h2>
-      <h3>Send one-time authorization code<h3>
+      <h3>Send One-Time Authorization Code<h3>
     </hgroup>
     <article>
       <pre class="prettyprint" data-lang="JavaScript">
@@ -676,12 +655,12 @@ function signinCallback(authResult) {
 
   <slide>
     <hgroup>
-      <h2>Server: Exchange One-Time Code</h2>
+      <h2>Server: Exchange Authorization Code</h2>
     </hgroup>
     <article>
       <ul>
         <li>More secure because code can only be used by your server</li>
-        <li>Can ask for offline access</li>
+        <li>Can ask for offline access and get a refresh token</li>
         <ul>
           <li>Access Token: Expires after one hour</li>
           <li>Refresh Token: Does not expire</li>
@@ -714,10 +693,16 @@ Full code, including Java and C#, available in our Quickstarts
           <th></th><th>Android</th><th>iOS</th><th>Web</th>
         </tr>
         <tr>
-          <td>Access Token</td><td><font color="green">✓</font></td><td><font color="green">✓</font></td><td><font color="aaaa00">Optional</font></td>
+          <td>Access Token</td>
+          <td><font color="green">✓</font></td>
+          <td><font color="green">✓</font></td>
+          <td><font color="aaaa00">Optional</font></td>
         </tr>
         <tr>
-          <td>One-Time Code</td><td>-</td><td>-</td><td><font color="green">✓</font></td>
+          <td>One-Time Code</td>
+          <td>-</td>
+          <td>-</td>
+          <td><font color="green">✓ (Offline Access)</font></td>
         </tr>
       </table>
     </article>
@@ -734,7 +719,7 @@ Full code, including Java and C#, available in our Quickstarts
         <ul>
           <li>e.g Need to consider ways to merge user identities across different systems</li>
         </ul>
-        <li>How to Offer Google+ Sign-In Alongside Other Social Sign-In Services</li>
+        <li><b>How to Offer Google+ Sign-In Alongside Other Social Sign-In Services</b></li>
         <ul>
           <li>Talk by Ian Barber</li>
           <li>Room 3, May 16, 5:20PM - 6:00PM</li>
@@ -750,15 +735,11 @@ Full code, including Java and C#, available in our Quickstarts
     </hgroup>
     <article>
       <ul>
-        <li>Trickier to support multiple-auth systems</li>
-        <ul>
-          <li>e.g Need to consider ways to merge user identities across different systems</li>
-        </ul>
-        <li>How to Offer Google+ Sign-In Alongside Other Social Sign-In Services</li>
-        <ul>
-          <li>Talk by Ian Barber</li>
-          <li>Room 3, May 16, 5:20PM - 6:00PM</li>
-        </ul>
+        <li>Do not build your own authentication system</li>
+        <li>Google+ makes authentication easy</li>
+        <li>Auth models depend on your architecture</li>
+        <li>Learn more and check out our Quickstarts and PhotoHunt at
+            <a href="https://developers.google.com/+/">https://developers.google.com/+/</a></li>
       </ul>
     </article>
   </slide>
