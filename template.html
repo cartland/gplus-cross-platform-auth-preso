@@ -1,7 +1,11 @@
 <!--
-Google IO 2012/2013 HTML5 Slide Template
+Google IO 2013: Cross-Platform Auth with Google+ Sign-In
 
-Authors: Eric Bidelman <ebidel@gmail.com>
+Authors: Chris Cartland <cartland@google.com>
+         Francis Ma <fma@google.com>
+
+Based on template by:
+         Eric Bidelman <ebidel@gmail.com>
          Luke Mahé <lukem@google.com>
 
 URL: https://code.google.com/p/io-2012-slides
@@ -18,6 +22,8 @@ URL: https://code.google.com/p/io-2012-slides
   <!--<meta name="viewport" content="initial-scale=0.4">-->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="all" href="theme/css/io2013.css">
+  <link rel="stylesheet" media="all" href="theme/css/cartland.css">
   <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
   <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
   <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
@@ -44,118 +50,17 @@ URL: https://code.google.com/p/io-2012-slides
 
   <slide>
     <hgroup>
-      <h2>Slide with Bullets</h2>
+      <h2>Agenda</h2>
     </hgroup>
     <article>
       <ul>
-        <li>Titles are formatted as Open Sans with bold applied and font size is set at 45</li>
-        <li>Title capitalization is title case
-          <ul>
-            <li>Subtitle capitalization is title case</li>
-          </ul>
-        </li>
-        <li>Subtitle capitalization is title case</li>
-        <li>Titles and subtitles should never have a period at the end</li>
+        <li>"Auth" and Google+ Sign-In</li>
+        <li>Auth Triangle: Your Client, Server, and Google</li>
+        <li>Client auth models across Android, iOS, and Web</li>
+        <li>Server auth</li>
+        <li>Choosing the right one for you</li>
       </ul>
     </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Slide with Bullets that Build</h2>
-      <h3>Subtitle Placeholder</h3>
-    </hgroup>
-    <article>
-      <p>A list where items build:</p>
-      <ul class="build">
-        <li>Pressing 'h' highlights code snippets</li>
-        <li>Pressing 'p' toggles speaker notes (if they're on the current slide)</li>
-        <li>Pressing 'f' toggles fullscreen viewing</li>
-        <li>Pressing 'w' toggles widescreen</li>
-        <li>Pressing 'o' toggles overview mode</li>
-        <li>Pressing 'ESC' toggles off these goodies</li>
-      </ul>
-      <p>Another list, but items fade as they build:</p>
-      <ul class="build fade">
-        <li>Hover over me!</li>
-        <li>Hover over me!</li>
-        <li>Hover over me!</li>
-      </ul>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Slide with (Smaller Font)</h2>
-    </hgroup>
-    <article class="smaller">
-      <ul>
-        <li>All <a href="http://google.com">links</a> open in new tabs.</li>
-        <li>To change that this, add <code>target="_self"</code> to the link.</li>
-      </ul>
-    </article>
-  </slide>
-
-  <slide hidden>
-    Hidden slides are left out of the presentation.
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Code Slide (with Subtitle Placeholder)</h2>
-      <h3>Subtitle Placeholder</h3>
-    </hgroup>
-    <article>
-      <p>Press 'h' to highlight important sections of code (wrapped in <code>&lt;b&gt;</code>).</p>
-      <pre class="prettyprint" data-lang="javascript">
-&lt;script type='text/javascript'&gt;
-  // Say hello world until the user starts questioning
-  // the meaningfulness of their existence.
-  function helloWorld(world) {
-    <b>for (var i = 42; --i &gt;= 0;) {
-      alert('Hello ' + String(world));
-    }</b>
-  }
-&lt;/script&gt;
-</pre>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Code Slide (Smaller Font)</h2>
-    </hgroup>
-    <article class="smaller">
-      <pre class="prettyprint" data-lang="javascript">
-// Say hello world until the user starts questioning
-// the meaningfulness of their existence.
-function helloWorld(world) {
-  for (var i = 42; --i &gt;= 0;) {
-    alert('Hello ' + String(world));
-  }
-}
-</pre>
-<pre class="prettyprint" data-lang="css">
-&lt;style&gt;
-  p { color: pink }
-  b { color: blue }
-&lt;/style&gt;
-</pre>
-<pre class="prettyprint" data-lang="html">
-&lt;!DOCTYPE html>
-&lt;html>
-&lt;head>
-  &lt;title>My Awesome Page&lt;/title>
-&lt;/head>
-&lt;body>
-  &lt;p&gt;Hello world&lt;/p&gt;
-&lt;body>
-&lt;/html>
-</pre>
-    </article>
-  </slide>
-
-  <slide>
     <aside class="note">
       <section>
         <ul>
@@ -167,211 +72,710 @@ function helloWorld(world) {
         <p><b>Remember to say this tag line!</b></p>
       </section>
     </aside>
-    <hgroup>
-      <h2>Slide with Speaker Notes</h2>
-    </hgroup>
-    <article>
-      <p>Press 'p' to toggle speaker notes.</p>
-    </article>
   </slide>
 
   <slide>
-    <aside class="note">
-      <section>
+    <hgroup>
+      <h2>Talking about "auth"</h2>
+    </hgroup>
+    <article style="float: left; width: 50%">
+      <ul>
+        <li>Authentication</li>
         <ul>
-          <li>See this amazing link: <a href="http://www.google.com">link</a>.</li>
+          <li>Verifies who you are</li>
         </ul>
-        <p><b>Remember to say this tag line!</b></p>
-      </section>
-    </aside>
-    <hgroup>
-      <h2>Presenter Mode</h2>
-    </hgroup>
-    <article>
-      <p>Add <code><a href="?presentme=true" target="_self">?presentme=true</a></code> to the URL to enabled presenter mode.
-      This setting is sticky, meaning refreshing the page will persist presenter
-      mode.</p>
-      <p>Hit <code><a href="?presentme=false" target="_self">?presentme=false</a></code> to disable presenter mode.</p>
+        <li>Authorization</li>
+        <ul>
+          <li>Permission to do something</li>
+        </ul>
+      </ul>
+    </article>
+    <article style="float:right; width:50%">
+      <img width="100%" src="images/chart.png" class="reflect" alt="Identity and Permsision" title="Identity and Permsision"><br />
     </article>
   </slide>
 
   <slide>
     <hgroup>
-      <h2>Slide with Image</h2>
+      <h2>Don't Build Your Own Authentication!</h2>
     </hgroup>
-    <article>
-      <img src="images/chart.png" class="reflect" alt="Description" title="Description">
-      <footer class="source">source: place source info here</footer>
+    <article style="float: left; width: 50%">
+      <ul>
+        <li>Lots to worry about</li>
+        <ul>
+          <li>Encrypt traffic</li>
+          <li>Hash + salt password</li>
+          <li>2-factor authentication</li>
+          <li>Account recovery</li>
+          <li>More...</li>
+        </ul>
+      </ul>
+    </article>
+    <article style="float:right; width:35%; margin-top:30px;">
+      <img width="100%" src="images/rocket-science.jpg" class="reflect" alt="Rocket Science" title="Rocket Science"><br />
+      <footer class="source">
+        http://spaceflight.nasa.gov/gallery/images/shuttle/sts-121/hires/sts121-s-030.jpg
+      </footer>
     </article>
   </slide>
 
   <slide>
     <hgroup>
-      <h2>Slide with Image (Centered horz/vert)</h2>
+      <h2>Making Headline News</h2>
+      <h3>... but not the way you want.</h3>
+    </hgroup>
+    <article class="flexbox vcenter" style="margin-top:-30px;">
+      <img src="images/hack-headlines.png" class="reflect" alt="Hack Headlines" title="Hack Headlines">
+      <footer class="source">
+        Google News, May 11, 2013
+      </footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Use An Identity Provider</h2>
+    </hgroup>
+    <article style="float: left; width:50%">
+      <ul>
+        <li>Easier for you and the user</li>
+        <li>Can ask for authorization for additional features</li>
+        <li>A better way to reach your goal</li>
+      </ul>
+    </article>
+    <article style="float:right; width:50%; margin-top:30px;">
+      <img width="100%" src="images/safe-travels.jpg" class="reflect" alt="Reach Your Goal" title="Reach Your Goal"><br />
+      <footer class="source">
+        http://www.nasa.gov/centers/dryden/images/content/690557main_SCA_Endeavour_over_Ventura.jpg
+      </footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2></h2>
     </hgroup>
     <article class="flexbox vcenter">
-      <img src="images/barchart.png" alt="Description" title="Description">
-      <footer class="source">source: place source info here</footer>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Table Option A</h2>
-      <h3>Subtitle Placeholder</h3>
-    </hgroup>
-    <article>
-      <table>
-        <tr>
-          <th></th><th>Column 1</th><th>Column 2</th><th>Column 3</th><th>Column 4</th>
-        </tr>
-        <tr>
-          <td>Row 1</td><td>placeholder</td><td class="highlight">placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 2</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 3</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 4</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 5</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-      </table>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Table Option A (Smaller Text)</h2>
-      <h3>Subtitle Placeholder</h3>
-    </hgroup>
-    <article class="smaller">
-      <table>
-        <tr>
-          <th></th><th>Column 1</th><th>Column 2</th><th>Column 3</th><th>Column 4</th>
-        </tr>
-        <tr>
-          <td>Row 1</td><td>placeholder</td><td class="highlight">placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 2</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 3</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 4</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 5</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-      </table>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Table Option B</h2>
-      <h3>Subtitle Placeholder</h3>
-    </hgroup>
-    <article>
-      <table class="rows">
-        <tr>
-          <th>Header 1</th><td>placeholder</td><td class="highlight">placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <th>Header 2</th><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <th>Header 3</th><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <th>Header 4</th><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <th>Header 5</th><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-      </table>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Slide Styles</h2>
-    </hgroup>
-    <article class="smaller">
-      <div class="columns-2">
-        <ul>
-          <li class="red">class="red"</li>
-          <li class="red2">class="red2"</li>
-          <li class="red3">class="red3"</li>
-          <li class="blue">class="blue"</li>
-          <li class="blue2">class="blue2"</li>
-          <li class="blue3">class="blue3"</li>
-          <li class="green">class="green"</li>
-          <li class="green2">class="green2"</li>
-        </ul>
-        <ul>
-          <li class="green3">class="green3"</li>
-          <li class="yellow">class="yellow"</li>
-          <li class="yellow2">class="yellow2"</li>
-          <li class="yellow3">class="yellow3"</li>
-          <li class="gray">class="gray"</li>
-          <li class="gray2">class="gray2"</li>
-          <li class="gray3">class="gray3"</li>
-          <li class="gray4">class="gray4"</li>
-        </ul>
-      </div>
-      <div class="centered" style="margin-top:2em">
-        I am centered text with a <button>Button</button> and <button disabled>Disabled</button> button.
-      </div>
+      <img width="600px" src="images/sign-in-button.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In">
+      <footer class="source">Google+ Sign-In Button</footer>
     </article>
   </slide>
 
   <slide class="segue dark nobackground">
     <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
     <hgroup class="auto-fadein">
-      <h2>Segue Slide</h2>
-      <h3>Subtitle Placeholder</h3>
+      <h2>How Does Google+ Sign-In Work?</h2>
     </hgroup>
   </slide>
 
-  <slide class="fill nobackground" style="background-image: url(images/sky.jpg)">
+  <slide>
     <hgroup>
-      <h2 class="white">Full Image (with Optional Header)</h2>
+      <h2>Based on OAuth 2.0</h2>
     </hgroup>
-    <footer class="source white">www.flickr.com/photos/25797459@N06/5438799763/</footer>
-  </slide>
-
-  <slide class="segue dark quote nobackground">
-    <aside class="gdbar right bottom"><img src="images/google_developers_icon_128.png"></aside>
-    <article class="flexbox vleft auto-fadein">
-      <q>
-        This is an example of quote text.
-      </q>
-      <div class="author">
-        Name<br>
-        Company
-      </div>
+    <article class="flexbox vcenter">
+      <img style="position: absolute; right: 40px; top:30px;" src="images/oauth-2-sm.png" class="reflect" alt="OAuth 2.0" title="OAuth 2.0">
+      <img width="800px" src="images/permission.png" class="reflect" alt="Permission Triangle" title="Permission Triangle">
+      <footer class="source">OAuth 2.0 logo from http://oauth.net/2/</footer>
     </article>
   </slide>
 
   <slide>
     <hgroup>
-      <h2>Slide with Iframe</h2>
+      <h2>Google API Console Project</h2>
+      <h3>https://developers.google.com/console</h3>
     </hgroup>
-    <article>
-      <iframe data-src="http://www.google.com/doodle4google/resources/history.html"></iframe>
+    <article style="float: left; width: 60%">
+      <ul>
+        <li>Create one project for your app with</li>
+        <ul>
+          <li>Branding information</li>
+          <li>Multiple clients</li>
+        </ul>
+      </ul>
+      <table>
+        <tr>
+          <th>Platform</th><th>Client Info</th>
+        </tr>
+        <tr>
+          <td>Android</td><td>App Package Name</td>
+        </tr>
+        <tr>
+          <td>iOS</td><td>Bundle ID</td>
+        </tr>
+        <tr>
+          <td>Web</td><td>JavaScript Origins</td>
+        </tr>
+      </table>
+    </article>
+    <article style="float:right; width:40%; margin-top:-100px;" class="flexbox vcenter">
+      <img width="350px" src="images/create-api-console-project.png" class="reflect" alt="Create Google API Console Project" title="Create Google API Console Project"><br />
     </article>
   </slide>
 
   <slide>
+    <hgroup>
+      <h2>Structuring your API Project correctly is important!</h2>
+    </hgroup>
     <article>
-      <iframe data-src="http://www.google.com/doodle4google/resources/history.html"></iframe>
+      <ul>
+        <li>Authorization is granted to your app, not a specific client</li>
+        <li>For Android & Web:</li>
+        <ul>
+          <li>Single user consent across clients</li>
+          <li>Google+ Sign-In automatically initializes clients with auth tokens, if available</li>
+          <li>Cross-platform Single Sign-On</li>
+        </ul>
+      </ul>
+    </article>
+  </slide>
+
+  <slide class="segue dark nobackground">
+    <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Your Client, Server, and Google</h2>
+    </hgroup>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Auth Triangle: Your Client, Server, and Google</h2>
+      <h3>The connecting lines require auth</h3>
+    </hgroup>
+    <article class="flexbox vcenter" style="margin-top:-30px;">
+      <img width="600px" src="images/auth-triangle.png" class="reflect" alt="Auth Triangle" title="Auth Triangle">
+    </article>
+  </slide>
+
+  <slide class="segue dark nobackground">
+    <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Client Auth: How to connect your app client with Google</h2>
+    </hgroup>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Client Auth</h2>
+    </hgroup>
+    <article class="larger" style="float: left; width: 25%">
+      <ul>
+        <li>Android</li>
+        <li>iOS</li>
+        <li>Web</li>
+      </ul>
+    </article>
+    <article style="float:right; width:60%; margin-top: 75px;">
+      <img width="100%" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth"><br />
+      <footer class="source">Client Auth</footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Android: Client Auth</h2>
+    </hgroup>
+    <article style="float: left; width: 50%">
+      <ul>
+        <li>Managed via Google Play services API</li>
+        <ul>
+          <li>Available on Android 2.2+</li>
+        </ul>
+        <li>Auth using Google accounts on the device</li>
+      </ul>
+    </article>
+    <article style="float:right; width:40%; margin-top:30px;">
+      <img width="100%" src="images/android-client.png" class="reflect" alt="Android Client Auth" title="Android Client Auth"><br />
+      <footer class="source">Android Client Auth</footer>
+    </article>
+    <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Android: Client Auth</h2>
+      <h3>Coincides with the Android Activity Lifecycle</h3>
+    </hgroup>
+    <article style="float: left; width: 150px">
+      <img width="100%" src="images/android-connection-lifecycle.png" class="reflect" alt="Android Connection Lifecycle" title="Android Connection Lifecycle"><br />
+    </article>
+    <article style="float:right; width:70%">
+      <pre class="prettyprint" data-lang="android">
+
+mPlusClient = new PlusClient.Builder(this, this, this)
+  .setScopes(SCOPES).build();
+findViewById(R.id.sign_in_button)
+  .setOnClickListener(this);
+</pre>
+      <pre class="prettyprint" data-lang="android">
+mPlusClient.connect();
+</pre>
+      <pre class="prettyprint" data-lang="xml">
+&lt;com.google.android.gms.common.SignInButton
+  android:id="@+id/sign_in_button"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content" /&gt;
+</pre>
+      <pre class="prettyprint" data-lang="android">
+mPlusClient.disconnect();
+</pre>
+    </article>
+    <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Android: Client Auth</h2>
+      <h3>Handle callback from mPlusClient.connect()</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="android">
+public void onConnectionFailed(ConnectionResult result) {
+  // Save the result and resolve the connection failure upon a user click.
+  mConnectionResult = result;
+}
+
+public void onConnected() {
+  Person current = mPlusClient.getCurrentPerson();
+  String gplusId = current.getId();
+}
+</pre>
+    </article>
+    <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Android: Client Auth</h2>
+      <h3>Start Google Play services resolution onClick</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="android">
+public void onClick(View view) {
+  <b>if (view.getId() == R.id.sign_in_button  // Sign-In Button
+        && !mPlusClient.isConnected()      // Not signed in
+        && mConnectionResult != null) {    // We have next steps</b>
+    try {
+      <b>mConnectionResult.startResolutionForResult(this,
+          REQUEST_CODE_RESOLVE_ERR);</b>
+    } catch (SendIntentException e) {
+      mConnectionResult = null;
+      mPlusClient.connect();
+    }
+  }
+}
+</pre>
+    </article>
+    <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Android: Client Auth</h2>
+      <h3>Call connect() when Google Play services is done</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="android">
+protected void onActivityResult(int requestCode,
+                                int responseCode, Intent intent) {
+  if (requestCode == REQUEST_CODE_RESOLVE_ERR
+        && responseCode == RESULT_OK) {
+    mConnectionResult = null;
+    <b>mPlusClient.connect();</b>
+  }
+}
+</pre>
+    </article>
+    <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Android: Client Auth</h2>
+      <h3>Connection Lifecycle</h3>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img style="height:80%; margin-top:-35%;" src="images/PlusClient-Lifecycle.png" class="reflect" alt="Resolution Lifecycle" title="Resolution Lifecycle">
+      <footer class="source">http://www.riskcompletefailure.com/2013/03/common-problems-with-google-sign-in-on.html</footer>
+    </article>
+    <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>iOS: Client Auth</h2>
+    </hgroup>
+    <article style="float: left; width: 50%">
+      <ul>
+        <li>Integrate with Google+ iOS SDK</li>
+        <li>SDK handles auth flows and token management</li>
+      </ul>
+    </article>
+    <article style="float:right; width:40%; margin-top:30px;">
+      <img width="100%" src="images/ios-client.png" class="reflect" alt="iOS Client Auth" title="iOS Client Auth">
+      <footer class="source">iOS Client Auth</footer>
+    </article>
+    <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>iOS: Client Auth</h2>
+      <h3>Setup Sign-In</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="objective-c">
+// In .m files as needed, or in your .pch file.
+#import &lt;GooglePlus/GooglePlus.h&gt;
+#import &lt;GoogleOpenSource/GoogleOpenSource.h&gt;
+
+// In AppDelegate.m
+- (BOOL)application:(UIApplication *)application
+    didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  GPPSignIn *signIn = [GPPSignIn sharedInstance];
+  signIn.clientID = @"YOUR_CLIENT_ID"
+  signIn.scopes = @[@"https://www.googleapis.com/auth/plus.login"];
+  signIn.shouldFetchGoogleUserID = YES;
+  signIn.delegate = self; // Implements GPPSignInDelegate protocol
+}
+</pre>
+    </article>
+    <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>iOS: Client Auth</h2>
+      <h3>User initiates with Sign-In Button</h3>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Use the button provided by the SDK</li>
+        <ul>
+          <li>Add a button to your view</li>
+          <li>Remove the default label</li>
+          <li>Set custom class to GPPSignIn</li>
+          <li>SDK localizes button and manages authflow</li>
+        </ul>
+        <p>OR</p>
+        <li>Create your own button following our branding guidelines</li>
+        <li>Then explicitly call the following in the IBAction</li>
+      <pre class="prettyprint" data-lang="objective-c">
+[[GPPSignIn sharedInstance] authenticate];
+</pre>
+    </article>
+    <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>iOS: Client Auth</h2>
+      <!--<h3>Receive Sign-In Information</h3>-->
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="objective-c">
+// In AppDelegate.m
+- (BOOL)application:(UIApplication *)application
+              openURL:(NSURL *)url
+    sourceApplication:(NSString *)sourceApplication
+           annotation:(id)annotation {
+  return <b>[GPPURLHandler handleURL:url
+                sourceApplication:sourceApplication
+                       annotation:annotation];</b>
+}
+
+- (void)finishedWithAuth:(GTMOAuth2Authentication *)auth
+                   error:(NSError *)error {
+  if (!error) {
+    <b>NSString *gplusId = [GPPSignIn sharedInstance].userID;</b>
+  }
+}
+</pre>
+    </article>
+    <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Web: Client Auth</h2>
+    </hgroup>
+    <article style="float: left; width: 50%">
+      <ul>
+        <li>Simply include the JavaScript client</li>
+        <li>Add Google+ Sign-In Button</li>
+        <li>Handle auth callback</li>
+      </ul>
+    </article>
+    <article style="float:right; width:50%; margin-top: 75px;">
+      <img width="100%" src="images/web-client.png" class="reflect" alt="Web Client Auth" title="Web Client Auth">
+      <footer class="source">Web Client Auth</footer>
+    </article>
+    <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Web: Client Auth</h2>
+      <h3>Add Sign-In Button element and include JavaScript</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="HTML">
+&lt;span id="signinButton"&gt;
+  &lt;span
+    class="g-signin"
+    data-callback="signinCallback"
+    data-clientid="CLIENT_ID"
+    data-cookiepolicy="single_host_origin"
+    data-requestvisibleactions="http://schemas.google.com/AddActivity"
+    data-scope="https://www.googleapis.com/auth/plus.login"&gt;
+  &lt;/span&gt;
+&lt;/span&gt;
+
+&lt;!-- Place plusone.js asynchronous JavaScript
+     just before your &lt;/body&gt; tag -->
+</pre>
+    </article>
+    <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Web: Client Auth</h2>
+      <h3>Handle auth callback</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="JavaScript">
+function signinCallback(authResult) {
+  if (authResult['access_token']) {
+    // Successfully authorized
+  } else if (authResult['error']) {
+    // User is not signed in.
+  }
+}
+</pre>
+    </article>
+    <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
+  </slide>
+
+  <slide class="segue dark nobackground">
+    <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Server Auth: How to connect your app server with Google</h2>
+    </hgroup>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Server Auth</h2>
+    </hgroup>
+    <article class="larger" style="float: left; width: 25%">
+      <ul>
+        <li>Android / iOS</li>
+        <li>Web</li>
+      </ul>
+    </article>
+    <article style="float:right; width:60%; margin-top: 75px;">
+      <img width="100%" src="images/server-auth.png" class="reflect" alt="Server Auth" title="Server Auth"><br />
+      <footer class="source">Server Auth</footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Android Auth To Server</h2>
+      <h3>Send Access Token To Server</h3>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Send tokens securely</li>
+        <li>Access Tokens are bearer tokens and anyone can use them</li>
+        <li>Access Tokens last one hour</li>
+      </ul>
+      <pre class="prettyprint" data-lang="Android">
+try {
+  <b>String access_token = GoogleAuthUtil.getToken(this,
+      mPlusClient.getAccountName(),
+      "oauth2:" + TextUtils.join(' ', SCOPES));</b>
+} catch (UserRecoverableAuthException e) {
+  // Recover
+} catch (Exception e) {
+  throw new RuntimeException(e);
+}
+</pre>
+    </article>
+    <img class="corner-placemark" src="images/server-auth.png" class="reflect" alt="Server Auth" title="Server Auth">
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>iOS Auth To Server</h2>
+      <h3>Send access token to server</h3>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Send tokens securely</li>
+        <li>Access Tokens are bearer tokens and anyone can use them</li>
+        <li>Access Tokens last one hour</li>
+      </ul>
+      <pre class="prettyprint" data-lang="Objective-C">
+- (void)finishedWithAuth:(GTMOAuth2Authentication *)auth
+                   error:(NSError *)error {
+  <b>NSString *accessToken = auth.accessToken;</b>
+  if (error) {
+    signInAuthStatus_.text =
+        [NSString stringWithFormat:@"Status: Authentication error: %@", error];
+    return;
+  }
+  [self reportAuthStatus];
+}
+</pre>
+    </article>
+    <img class="corner-placemark" src="images/server-auth.png" class="reflect" alt="Server Auth" title="Server Auth">
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Server: Verify Access Token</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="Python">
+import httplib2
+import json
+<b>url = ('https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=%s'
+       % access_token)</b>
+h = httplib2.Http()
+result = json.loads(h.request(url, 'GET')[1])
+
+# If there was an error in the access token info, abort.
+<b>if result.get('error') is not None:</b>
+  return
+
+# Verify that the access token is valid for this app.
+<b>if result['issued_to'] != CLIENT_ID:</b>
+  return
+
+# Get the user ID.
+gplus_id = result['user_id']
+</pre>
+    </article>
+    <img class="corner-placemark" src="images/server-auth.png" class="reflect" alt="Server Auth" title="Server Auth">
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Web Auth To Server</h2>
+      <h3>Send One-Time Authorization Code<h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="JavaScript">
+function signinCallback(authResult) {
+  if (authResult['access_token']) {
+    <b>// Send code to server in POST request
+    var code = authResult.code;</b>
+  } else if (authResult['error']) {
+    // User is not signed in.
+  }
+}
+</pre>
+    </article>
+    <img class="corner-placemark" src="images/server-auth.png" class="reflect" alt="Server Auth" title="Server Auth">
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Server: Exchange Authorization Code</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>More secure because code can only be used by your server</li>
+        <li>Can ask for offline access and get a refresh token</li>
+        <ul>
+          <li>Access Token: Expires after one hour</li>
+          <li>Refresh Token: Does not expire</li>
+        </ul>
+        <li></li>
+      </ul>
+      <pre class="prettyprint" data-lang="Ruby">
+$authorization.code = request.body.read
+<b>$authorization.fetch_access_token!</b>
+</pre>
+      <pre class="prettyprint" data-lang="Python">
+code = request.data
+<b>credentials = oauth_flow.step2_exchange(code)</b>
+</pre>
+      <pre class="prettyprint" data-lang="PHP">
+$code = $request->getContent();
+<b>$client->authenticate($code);</b>
+</pre>
+Full code, including Java and C#, available in our Quickstarts
+    </article>
+    <img class="corner-placemark" src="images/server-auth.png" class="reflect" alt="Server Auth" title="Server Auth">
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Ways To Enable Server-Side Auth</h2>
+    </hgroup>
+    <article style="font-size: 300%; margin-top: 60px;">
+      <table>
+        <tr>
+          <th style="font-size: 50%"></th>
+          <th style="font-size: 50%">Android</th>
+          <th style="font-size: 50%">iOS</th>
+          <th style="font-size: 50%">Web</th>
+        </tr>
+        <tr>
+          <td style="font-size: 40%">Access Token To Server</td>
+          <td style="font-size: 40%"><font color="green">✓</font></td>
+          <td style="font-size: 40%"><font color="green">✓</font></td>
+          <td style="font-size: 40%"><font color="aaaa00">Optional</font></td>
+        </tr>
+        <tr>
+          <td style="font-size: 40%">One-Time Code To Upgrade</td>
+          <td style="font-size: 40%">-</td>
+          <td style="font-size: 40%">-</td>
+          <td style="font-size: 40%"><font color="green">✓</font></td>
+        </tr>
+      </table>
+    </article>
+    <img class="corner-placemark" src="images/server-auth.png" class="reflect" alt="Server Auth" title="Server Auth">
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Multiple Auth Systems</h2>
+      <h3>Proprietary password, Google+, Facebook</h3> 
+    </hgroup>
+    <article style="float: left; width: 70%">
+      <ul>
+        <li>Trickier to support multiple-auth systems</li>
+        <ul>
+          <li>e.g Need to consider ways to merge user identities across different systems</li>
+        </ul>
+        <li><b>How to Offer Google+ Sign-In Alongside Other Social Sign-In Services</b></li>
+        <ul>
+          <li>Talk by Ian Barber</li>
+          <li>Room 3, May 16, 5:20PM - 6:00PM</li>
+        </ul>
+      </ul>
+    </article>
+    <article style="float:right; width:25%; margin-top: 180px">
+      <img width="200px" src="images/ian-barber.jpg" class="reflect" alt="Ian Barber" title="Ian Barber"><br />
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Review</h2>
+      <h3>Cross-Platform Auth with Google+ Sign-In</h3> 
+    </hgroup>
+    <article>
+      <ul>
+        <li>Do not build your own authentication system</li>
+        <li>Google+ makes authentication easy</li>
+        <li>Auth models depend on your architecture</li>
+        <li>Learn more and check out our Quickstarts and PhotoHunt at
+            <a href="https://developers.google.com/+/">https://developers.google.com/+/</a></li>
+      </ul>
     </article>
   </slide>
 
@@ -379,7 +783,7 @@ function helloWorld(world) {
     <aside class="gdbar right"><img src="images/google_developers_icon_128.png"></aside>
     <article class="flexbox vleft auto-fadein">
       <h2>&lt;Thank You!&gt;</h2>
-      <p>Important contact information goes here.</p>
+      <p>developers.google.com/+</p>
     </article>
     <p class="auto-fadein" data-config-contact>
       <!-- populated from slide_config.json -->

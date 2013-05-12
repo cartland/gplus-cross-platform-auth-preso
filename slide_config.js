@@ -1,7 +1,7 @@
 var SLIDE_CONFIG = {
   // Slide settings
   settings: {
-    title: 'Authentication Models<br>For Social Apps',
+    title: 'Cross-Platform Auth<br>with Google+ Sign-In',
     subtitle: 'Google+ Platform',
     //eventInfo: {
     //  title: 'Google I/O',
@@ -23,14 +23,14 @@ var SLIDE_CONFIG = {
   // Author information
   presenters: [{
     name: 'Chris Cartland',
-    company: 'Developer Programs Engineer, Google',
+    company: 'Developer Programs Engineer',
     gplus: 'http://plus.google.com/+ChrisCartland',
   //  twitter: '@yourhandle',
   //  www: 'http://www.you.com',
   //  github: 'http://github.com/you'
   }, {
     name: 'Francis Ma',
-    company: 'Product Manager, Google',
+    company: 'Product Manager',
     gplus: 'https://plus.google.com/110561195866999583986',
   //  twitter: '@yourhandle',
   //  www: 'http://www.you.com',
