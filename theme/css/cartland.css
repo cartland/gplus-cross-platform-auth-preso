@@ -10,3 +10,7 @@ article.larger p, article.larger ul {
   line-height: 36px;
   letter-spacing: 0;
 }
+
+.segue h2 {
+  line-height: 1;
+}
