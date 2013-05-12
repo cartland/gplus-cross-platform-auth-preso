@@ -4,3 +4,9 @@
   right: 40px;
   top:30px;
 }
+
+article.larger p, article.larger ul {
+  font-size: 36px;
+  line-height: 36px;
+  letter-spacing: 0;
+}
