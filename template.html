@@ -1,7 +1,11 @@
 <!--
-Google IO 2012/2013 HTML5 Slide Template
+Google IO 2013: Cross-Platform Auth with Google+ Sign-In
 
-Authors: Eric Bidelman <ebidel@gmail.com>
+Authors: Chris Cartland <cartland@google.com>
+         Francis Ma <fma@google.com>
+
+Based on template by:
+         Eric Bidelman <ebidel@gmail.com>
          Luke Mahé <lukem@google.com>
 
 URL: https://code.google.com/p/io-2012-slides
@@ -87,16 +91,9 @@ URL: https://code.google.com/p/io-2012-slides
       </ul>
     </article>
     <article style="float:right; width:50%">
-      <img width="100%" src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In"><br />
+      <img width="100%" src="images/chart.png" class="reflect" alt="Identity and Permsision" title="Identity and Permsision"><br />
     </article>
   </slide>
-
-<!--
-    <article style="float: left; width: 50%">
-    </article>
-    <article style="float:right; width:50%">
-      <img width="100%" src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In"><br />
--->
 
   <slide>
     <hgroup>
@@ -114,8 +111,11 @@ URL: https://code.google.com/p/io-2012-slides
         </ul>
       </ul>
     </article>
-    <article style="float:right; width:50%">
-      <img width="100%" src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In"><br />
+    <article style="float:right; width:35%; margin-top:30px;">
+      <img width="100%" src="images/rocket-science.jpg" class="reflect" alt="Rocket Science" title="Rocket Science"><br />
+      <footer class="source">
+        http://spaceflight.nasa.gov/gallery/images/shuttle/sts-121/hires/sts121-s-030.jpg
+      </footer>
     </article>
   </slide>
 
@@ -124,8 +124,11 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Making Headline News</h2>
       <h3>... but not the way you want.</h3>
     </hgroup>
-    <article>
-      <img src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In">
+    <article class="flexbox vcenter" style="margin-top:-30px;">
+      <img src="images/hack-headlines.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In">
+      <footer class="source">
+        Google News, May 11, 2013
+      </footer>
     </article>
   </slide>
 
@@ -136,12 +139,15 @@ URL: https://code.google.com/p/io-2012-slides
     <article style="float: left; width:50%">
       <ul>
         <li>Easier for you and the user</li>
-        <li>Can ask for authoriation for additional features</li>
+        <li>Can ask for authorization for additional features</li>
         <li>A better way to reach your goal</li>
       </ul>
     </article>
-    <article style="float:right; width:50%">
-      <img width="100%" src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In"><br />
+    <article style="float:right; width:50%; margin-top:30px;">
+      <img width="100%" src="images/safe-travels.jpg" class="reflect" alt="Reach Your Goal" title="Reach Your Goal"><br />
+      <footer class="source">
+        http://www.nasa.gov/centers/dryden/images/content/690557main_SCA_Endeavour_over_Ventura.jpg
+      </footer>
     </article>
   </slide>
 
@@ -149,8 +155,8 @@ URL: https://code.google.com/p/io-2012-slides
     <hgroup>
       <h2></h2>
     </hgroup>
-    <article>
-      <img src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In">
+    <article class="flexbox vcenter">
+      <img width="600px" src="images/sign-in-button.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In">
       <footer class="source">Google+ Sign-In Button</footer>
     </article>
   </slide>
@@ -166,9 +172,10 @@ URL: https://code.google.com/p/io-2012-slides
     <hgroup>
       <h2>Based on OAuth 2.0</h2>
     </hgroup>
-    <article>
-      <img src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In">
-      <footer class="source">OAuth 2.0</footer>
+    <article class="flexbox vcenter">
+      <img style="position: absolute; right: 40px; top:30px;" src="images/oauth-2-sm.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In">
+      <img width="800px" src="images/permission.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In">
+      <footer class="source">OAuth 2.0 logo from http://oauth.net/2/</footer>
     </article>
   </slide>
 
@@ -200,8 +207,8 @@ URL: https://code.google.com/p/io-2012-slides
         </tr>
       </table>
     </article>
-    <article style="float:right; width:40%">
-      <img width="100%" src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In"><br />
+    <article style="float:right; width:40%; margin-top:-100px;" class="flexbox vcenter">
+      <img width="350px" src="images/create-api-console-project.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In"><br />
     </article>
   </slide>
 
@@ -234,9 +241,8 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Auth Triangle: Your Client, Server, and Google</h2>
       <h3>The connecting lines require auth</h3>
     </hgroup>
-    <article>
-      <img src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In">
-      <footer class="source">Auth Triangle</footer>
+    <article class="flexbox vcenter" style="margin-top:-30px;">
+      <img width="600px" src="images/auth-triangle.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In">
     </article>
   </slide>
 
@@ -258,8 +264,8 @@ URL: https://code.google.com/p/io-2012-slides
         <li>Web</li>
       </ul>
     </article>
-    <article style="float:right; width:75%">
-      <img width="100%" src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In"><br />
+    <article style="float:right; width:60%; margin-top: 75px;">
+      <img width="600" src="images/client-auth.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In"><br />
       <footer class="source">Client Auth</footer>
     </article>
   </slide>
@@ -277,10 +283,11 @@ URL: https://code.google.com/p/io-2012-slides
         <li>Auth using Google accounts on the device</li>
       </ul>
     </article>
-    <article style="float:right; width:50%">
-      <img width="100%" src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In"><br />
+    <article style="float:right; width:40%; margin-top:30px;">
+      <img width="100%" src="images/android-client.png" class="reflect" alt="Android Client Auth" title="Android Client Auth"><br />
       <footer class="source">Android Client Auth</footer>
     </article>
+    <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
   </slide>
 
   <slide>
@@ -312,6 +319,7 @@ mPlusClient.connect();
 mPlusClient.disconnect();
 </pre>
     </article>
+    <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
   </slide>
 
   <slide>
@@ -332,6 +340,7 @@ public void onConnected() {
 }
 </pre>
     </article>
+    <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
   </slide>
 
   <slide>
@@ -356,6 +365,7 @@ public void onClick(View view) {
 }
 </pre>
     </article>
+    <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
   </slide>
 
   <slide>
@@ -375,6 +385,7 @@ protected void onActivityResult(int requestCode,
 }
 </pre>
     </article>
+    <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
   </slide>
 
   <slide>
@@ -386,6 +397,7 @@ protected void onActivityResult(int requestCode,
       <img style="height:80%; margin-top:-35%;" src="images/PlusClient-Lifecycle.png" class="reflect" alt="Resolution Lifecycle" title="Resolution Lifecycle">
       <footer class="source">http://www.riskcompletefailure.com/2013/03/common-problems-with-google-sign-in-on.html</footer>
     </article>
+    <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
   </slide>
 
   <slide>
@@ -398,10 +410,11 @@ protected void onActivityResult(int requestCode,
         <li>SDK handles auth flows and token management</li>
       </ul>
     </article>
-    <article style="float:right; width:50%">
-      <img width="100%" src="images/chart.png" class="reflect" alt="iOS Client Auth" title="iOS Client Auth">
+    <article style="float:right; width:40%; margin-top:30px;">
+      <img width="100%" src="images/ios-client.png" class="reflect" alt="iOS Client Auth" title="iOS Client Auth">
       <footer class="source">iOS Client Auth</footer>
     </article>
+    <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
   </slide>
 
   <slide>
@@ -422,10 +435,11 @@ protected void onActivityResult(int requestCode,
   signIn.clientID = @"YOUR_CLIENT_ID"
   signIn.scopes = @[@"https://www.googleapis.com/auth/plus.login"];
   signIn.shouldFetchGoogleUserID = YES;
-  signIn.delegate = self; // Must implement GPPSignInDelegate protocol
+  signIn.delegate = self; // Implements GPPSignInDelegate protocol
 }
 </pre>
     </article>
+    <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
   </slide>
 
   <slide>
@@ -449,6 +463,7 @@ protected void onActivityResult(int requestCode,
 [[GPPSignIn sharedInstance] authenticate];
 </pre>
     </article>
+    <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
   </slide>
 
   <slide>
@@ -463,19 +478,20 @@ protected void onActivityResult(int requestCode,
               openURL:(NSURL *)url
     sourceApplication:(NSString *)sourceApplication
            annotation:(id)annotation {
-  return [GPPURLHandler handleURL:url
+  return <b>[GPPURLHandler handleURL:url
                 sourceApplication:sourceApplication
-                       annotation:annotation];
+                       annotation:annotation];</b>
 }
 
 - (void)finishedWithAuth:(GTMOAuth2Authentication *)auth
                    error:(NSError *)error {
   if (!error) {
-    NSString *gplusId = [GPPSignIn sharedInstance].userID;
+    <b>NSString *gplusId = [GPPSignIn sharedInstance].userID;</b>
   }
 }
 </pre>
     </article>
+    <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
   </slide>
 
   <slide>
@@ -489,10 +505,11 @@ protected void onActivityResult(int requestCode,
         <li>Handle auth callback</li>
       </ul>
     </article>
-    <article style="float:right; width:50%">
-      <img width="100%" src="images/chart.png" class="reflect" alt="Web Client Auth" title="Web Client Auth">
+    <article style="float:right; width:50%; margin-top: 75px;">
+      <img width="100%" src="images/web-client.png" class="reflect" alt="Web Client Auth" title="Web Client Auth">
       <footer class="source">Web Client Auth</footer>
     </article>
+    <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
   </slide>
 
   <slide>
@@ -513,9 +530,11 @@ protected void onActivityResult(int requestCode,
   &lt;/span&gt;
 &lt;/span&gt;
 
-&lt;!-- Place plusone.js asynchronous JavaScript just before your &lt;/body&gt; tag -->
+&lt;!-- Place plusone.js asynchronous JavaScript
+     just before your &lt;/body&gt; tag -->
 </pre>
     </article>
+    <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
   </slide>
 
   <slide>
@@ -534,6 +553,7 @@ function signinCallback(authResult) {
 }
 </pre>
     </article>
+    <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
   </slide>
 
   <slide class="segue dark nobackground">
@@ -553,8 +573,8 @@ function signinCallback(authResult) {
         <li>Web</li>
       </ul>
     </article>
-    <article style="float:right; width:75%">
-      <img width="100%" src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In">
+    <article style="float:right; width:60%; margin-top: 75px;">
+      <img width="600" src="images/server-auth.png" class="reflect" alt="Server Auth" title="Server Auth"><br />
       <footer class="source">Server Auth</footer>
     </article>
   </slide>
@@ -567,7 +587,7 @@ function signinCallback(authResult) {
     <article>
       <ul>
         <li>Send tokens securely</li>
-        <li>Access Tokens are bearer tokens and anyyone can use them</li>
+        <li>Access Tokens are bearer tokens and anyone can use them</li>
         <li>Access Tokens last one hour</li>
       </ul>
       <pre class="prettyprint" data-lang="Android">
@@ -582,6 +602,7 @@ try {
 }
 </pre>
     </article>
+    <img class="corner-placemark" src="images/server-auth.png" class="reflect" alt="Server Auth" title="Server Auth">
   </slide>
 
   <slide>
@@ -592,7 +613,7 @@ try {
     <article>
       <ul>
         <li>Send tokens securely</li>
-        <li>Access Tokens are bearer tokens and anyyone can use them</li>
+        <li>Access Tokens are bearer tokens and anyone can use them</li>
         <li>Access Tokens last one hour</li>
       </ul>
       <pre class="prettyprint" data-lang="Objective-C">
@@ -608,6 +629,7 @@ try {
 }
 </pre>
     </article>
+    <img class="corner-placemark" src="images/server-auth.png" class="reflect" alt="Server Auth" title="Server Auth">
   </slide>
 
   <slide>
@@ -635,6 +657,7 @@ result = json.loads(h.request(url, 'GET')[1])
 gplus_id = result['user_id']
 </pre>
     </article>
+    <img class="corner-placemark" src="images/server-auth.png" class="reflect" alt="Server Auth" title="Server Auth">
   </slide>
 
   <slide>
@@ -654,6 +677,7 @@ function signinCallback(authResult) {
 }
 </pre>
     </article>
+    <img class="corner-placemark" src="images/server-auth.png" class="reflect" alt="Server Auth" title="Server Auth">
   </slide>
 
   <slide>
@@ -684,6 +708,7 @@ $code = $request->getContent();
 </pre>
 Full code, including Java and C#, available in our Quickstarts
     </article>
+    <img class="corner-placemark" src="images/server-auth.png" class="reflect" alt="Server Auth" title="Server Auth">
   </slide>
 
   <slide>
@@ -709,6 +734,7 @@ Full code, including Java and C#, available in our Quickstarts
         </tr>
       </table>
     </article>
+    <img class="corner-placemark" src="images/server-auth.png" class="reflect" alt="Server Auth" title="Server Auth">
   </slide>
 
   <slide>
@@ -729,8 +755,8 @@ Full code, including Java and C#, available in our Quickstarts
         </ul>
       </ul>
     </article>
-    <article style="float:right; width:30%; margin-top: 50%">
-      <img width="100%" src="images/chart.png" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In"><br />
+    <article style="float:right; width:25%; margin-top: 180px">
+      <img width="200px" src="images/ian-barber.jpg" class="reflect" alt="Google+ Sign-In" title="Google+ Sign-In"><br />
     </article>
   </slide>
 
