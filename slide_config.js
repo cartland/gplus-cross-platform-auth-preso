@@ -23,14 +23,14 @@ var SLIDE_CONFIG = {
   // Author information
   presenters: [{
     name: 'Chris Cartland',
-    company: 'Developer Programs Engineer, Google',
+    company: 'Developer Programs Engineer',
     gplus: 'http://plus.google.com/+ChrisCartland',
   //  twitter: '@yourhandle',
   //  www: 'http://www.you.com',
   //  github: 'http://github.com/you'
   }, {
     name: 'Francis Ma',
-    company: 'Product Manager, Google',
+    company: 'Product Manager',
     gplus: 'https://plus.google.com/110561195866999583986',
   //  twitter: '@yourhandle',
   //  www: 'http://www.you.com',
