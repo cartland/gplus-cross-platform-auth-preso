@@ -283,6 +283,18 @@ URL: https://code.google.com/p/io-2012-slides
   <slide>
     <hgroup>
       <h2>Android: Client Auth</h2>
+      <h3>Connection Lifecycle</h3>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img style="height:80%; margin-top:-35%;" src="images/PlusClient-Lifecycle.png" class="reflect" alt="Resolution Lifecycle" title="Resolution Lifecycle">
+      <footer class="source">http://www.riskcompletefailure.com/2013/03/common-problems-with-google-sign-in-on.html</footer>
+    </article>
+    <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Android: Client Auth</h2>
       <h3>Coincides with the Android Activity Lifecycle</h3>
     </hgroup>
     <article style="float: left; width: 150px">
@@ -558,14 +570,41 @@ function signinCallback(authResult) {
     </hgroup>
     <article class="larger" style="float: left; width: 35%">
       <ul>
-        <li>Android / iOS</li>
-        <li>Web</li>
+        <li>iOS</li>
+        <li>Android / Web</li>
       </ul>
     </article>
     <article style="float:right; width:60%; margin-top: 75px;">
       <img width="100%" src="images/server-auth.png" class="reflect" alt="Server Auth" title="Server Auth"><br />
       <footer class="source">Server Auth</footer>
     </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>iOS Auth To Server</h2>
+      <h3>Send Access Token To Server</h3>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Send tokens securely</li>
+        <li>Access Tokens are bearer tokens and anyone can use them</li>
+        <li>Access Tokens last one hour</li>
+      </ul>
+      <pre class="prettyprint" data-lang="Objective-C">
+- (void)finishedWithAuth:(GTMOAuth2Authentication *)auth
+                   error:(NSError *)error {
+  <b>NSString *accessToken = auth.accessToken;</b>
+  if (error) {
+    signInAuthStatus_.text =
+        [NSString stringWithFormat:@"Status: Authentication error: %@", error];
+    return;
+  }
+  [self reportAuthStatus];
+}
+</pre>
+    </article>
+    <img class="corner-placemark" src="images/server-auth.png" class="reflect" alt="Server Auth" title="Server Auth">
   </slide>
 
   <slide>
@@ -596,25 +635,25 @@ try {
 
   <slide>
     <hgroup>
-      <h2>iOS Auth To Server</h2>
-      <h3>Send access token to server</h3>
+      <h2>Android Auth To Server</h2>
+      <h3>Send One-Time Authorization Code<h3>
     </hgroup>
     <article>
       <ul>
-        <li>Send tokens securely</li>
-        <li>Access Tokens are bearer tokens and anyone can use them</li>
-        <li>Access Tokens last one hour</li>
+        <li>Code can only be used by your server</li>
+        <li>Code can get an Access Token and a Refresh Token</li>
+        <li>Refresh Tokens do not expire</li>
       </ul>
-      <pre class="prettyprint" data-lang="Objective-C">
-- (void)finishedWithAuth:(GTMOAuth2Authentication *)auth
-                   error:(NSError *)error {
-  <b>NSString *accessToken = auth.accessToken;</b>
-  if (error) {
-    signInAuthStatus_.text =
-        [NSString stringWithFormat:@"Status: Authentication error: %@", error];
-    return;
-  }
-  [self reportAuthStatus];
+      <pre class="prettyprint" data-lang="Android">
+try {
+  <b>String code = GoogleAuthUtil.getToken(this,
+      mPlusClient.getAccountName(),
+      "oauth2:server:client_id:" + CLIENT_ID
+      + ":api_scope:" + TextUtils.join(' ', SCOPES));</b>
+} catch (UserRecoverableAuthException e) {
+  // Recover
+} catch (Exception e) {
+  throw new RuntimeException(e);
 }
 </pre>
     </article>
