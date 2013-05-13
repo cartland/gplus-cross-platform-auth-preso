@@ -635,33 +635,6 @@ try {
 
   <slide>
     <hgroup>
-      <h2>Android Auth To Server</h2>
-      <h3>Send One-Time Authorization Code<h3>
-    </hgroup>
-    <article>
-      <ul>
-        <li>Code can only be used by your server</li>
-        <li>Code can get an Access Token and a Refresh Token</li>
-        <li>Refresh Tokens do not expire</li>
-      </ul>
-      <pre class="prettyprint" data-lang="Android">
-try {
-  <b>String code = GoogleAuthUtil.getToken(this,
-      mPlusClient.getAccountName(),
-      "oauth2:server:client_id:" + CLIENT_ID
-      + ":api_scope:" + TextUtils.join(' ', SCOPES));</b>
-} catch (UserRecoverableAuthException e) {
-  // Recover
-} catch (Exception e) {
-  throw new RuntimeException(e);
-}
-</pre>
-    </article>
-    <img class="corner-placemark" src="images/server-auth.png" class="reflect" alt="Server Auth" title="Server Auth">
-  </slide>
-
-  <slide>
-    <hgroup>
       <h2>Server: Verify Access Token</h2>
     </hgroup>
     <article>
@@ -683,6 +656,33 @@ result = json.loads(h.request(url, 'GET')[1])
 
 # Get the user ID.
 gplus_id = result['user_id']
+</pre>
+    </article>
+    <img class="corner-placemark" src="images/server-auth.png" class="reflect" alt="Server Auth" title="Server Auth">
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Android Auth To Server</h2>
+      <h3>Send One-Time Authorization Code<h3>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Code can only be used by your server</li>
+        <li>Code can get an Access Token and a Refresh Token</li>
+        <li>Refresh Tokens do not expire</li>
+      </ul>
+      <pre class="prettyprint" data-lang="Android">
+try {
+  <b>String code = GoogleAuthUtil.getToken(this,
+      mPlusClient.getAccountName(),
+      "oauth2:server:client_id:" + CLIENT_ID
+      + ":api_scope:" + TextUtils.join(' ', SCOPES));</b>
+} catch (UserRecoverableAuthException e) {
+  // Recover
+} catch (Exception e) {
+  throw new RuntimeException(e);
+}
 </pre>
     </article>
     <img class="corner-placemark" src="images/server-auth.png" class="reflect" alt="Server Auth" title="Server Auth">
