@@ -52,7 +52,7 @@ URL: https://code.google.com/p/io-2012-slides
     <hgroup>
       <h2>Agenda</h2>
     </hgroup>
-    <article>
+    <article class="flexbox vcenter" class="larger">
       <ul>
         <li>"Auth" and Google+ Sign-In</li>
         <li>Auth Triangle: Your Client, Server, and Google</li>
@@ -67,7 +67,7 @@ URL: https://code.google.com/p/io-2012-slides
     <hgroup>
       <h2>Talking about "auth"</h2>
     </hgroup>
-    <article style="float: left; width: 50%">
+    <article class="flexbox vcenter" style="float: left; width: 50%">
       <ul>
         <li>Authentication</li>
         <ul>
@@ -89,7 +89,7 @@ URL: https://code.google.com/p/io-2012-slides
     <hgroup>
       <h2>Don't Build Your Own Authentication!</h2>
     </hgroup>
-    <article style="float: left; width: 50%">
+    <article class="flexbox vcenter" style="float: left; width: 50%">
       <ul>
         <li>Lots to worry about</li>
         <ul>
@@ -126,7 +126,7 @@ URL: https://code.google.com/p/io-2012-slides
     <hgroup>
       <h2>Use An Identity Provider</h2>
     </hgroup>
-    <article style="float: left; width:50%">
+    <article class="flexbox vcenter" style="float: left; width:50%">
       <ul>
         <li>Easier for you and the user</li>
         <li>Can ask for authorization for additional features</li>
@@ -206,7 +206,7 @@ URL: https://code.google.com/p/io-2012-slides
     <hgroup>
       <h2>Structuring your API Project correctly is important!</h2>
     </hgroup>
-    <article>
+    <article class="flexbox vcenter">
       <ul>
         <li>Authorization is granted to your app, not a specific client</li>
         <li>For Android & Web:</li>
@@ -247,7 +247,7 @@ URL: https://code.google.com/p/io-2012-slides
     <hgroup>
       <h2>Client Auth</h2>
     </hgroup>
-    <article class="larger" style="float: left; width: 25%">
+    <article class="larger" style="float: left; width: 35%">
       <ul>
         <li>Android</li>
         <li>iOS</li>
@@ -264,7 +264,7 @@ URL: https://code.google.com/p/io-2012-slides
     <hgroup>
       <h2>Android: Client Auth</h2>
     </hgroup>
-    <article style="float: left; width: 50%">
+    <article class="flexbox vcenter" style="float: left; width: 50%">
       <ul>
         <li>Managed via Google Play services API</li>
         <ul>
@@ -394,7 +394,7 @@ protected void onActivityResult(int requestCode,
     <hgroup>
       <h2>iOS: Client Auth</h2>
     </hgroup>
-    <article style="float: left; width: 50%">
+    <article class="flexbox vcenter" style="float: left; width: 50%">
       <ul>
         <li>Integrate with Google+ iOS SDK</li>
         <li>SDK handles auth flows and token management</li>
@@ -439,14 +439,13 @@ protected void onActivityResult(int requestCode,
     </hgroup>
     <article>
       <ul>
-        <li>Use the button provided by the SDK</li>
-        <ul>
-          <li>Add a button to your view</li>
-          <li>Remove the default label</li>
-          <li>Set custom class to GPPSignIn</li>
-          <li>SDK localizes button and manages authflow</li>
-        </ul>
-        <p>OR</p>
+        <li>Add a button to your view</li>
+        <!-- <li>Remove the default label</li> -->
+        <li>Set custom class to GPPSignIn</li>
+        <li>SDK localizes button and manages authflow</li>
+        <p>
+        <p>
+        OR
         <li>Create your own button following our branding guidelines</li>
         <li>Then explicitly call the following in the IBAction</li>
       <pre class="prettyprint" data-lang="objective-c">
@@ -488,7 +487,7 @@ protected void onActivityResult(int requestCode,
     <hgroup>
       <h2>Web: Client Auth</h2>
     </hgroup>
-    <article style="float: left; width: 50%">
+    <article class="flexbox vcenter" style="float: left; width: 50%">
       <ul>
         <li>Simply include the JavaScript client</li>
         <li>Add Google+ Sign-In Button</li>
@@ -557,7 +556,7 @@ function signinCallback(authResult) {
     <hgroup>
       <h2>Server Auth</h2>
     </hgroup>
-    <article class="larger" style="float: left; width: 25%">
+    <article class="larger" style="float: left; width: 35%">
       <ul>
         <li>Android / iOS</li>
         <li>Web</li>
@@ -705,8 +704,8 @@ Full code, including Java and C#, available in our Quickstarts
     <hgroup>
       <h2>Ways To Enable Server-Side Auth</h2>
     </hgroup>
-    <article style="font-size: 300%; margin-top: 60px;">
-      <table>
+    <article style="margin-top: 60px;">
+      <table style="font-size: 280%;">
         <tr>
           <th style="font-size: 50%"></th>
           <th style="font-size: 50%">Android</th>
@@ -714,18 +713,20 @@ Full code, including Java and C#, available in our Quickstarts
           <th style="font-size: 50%">Web</th>
         </tr>
         <tr>
-          <td style="font-size: 40%">Access Token To Server</td>
+          <td style="font-size: 40%">Verify Access Token</td>
           <td style="font-size: 40%"><font color="green">✓</font></td>
           <td style="font-size: 40%"><font color="green">✓</font></td>
           <td style="font-size: 40%"><font color="aaaa00">Optional</font></td>
         </tr>
         <tr>
-          <td style="font-size: 40%">One-Time Code To Upgrade</td>
+          <td style="font-size: 40%">Exchange One-Time Code*</td>
           <td style="font-size: 40%">-</td>
           <td style="font-size: 40%">-</td>
           <td style="font-size: 40%"><font color="green">✓</font></td>
         </tr>
       </table>
+      <p><p>
+      * The one-time code can retrieve a refresh token if you ask for offline access
     </article>
     <img class="corner-placemark" src="images/server-auth.png" class="reflect" alt="Server Auth" title="Server Auth">
   </slide>
