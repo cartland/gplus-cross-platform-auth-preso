@@ -24,7 +24,7 @@ var SLIDE_CONFIG = {
   presenters: [{
     name: 'Chris Cartland',
     company: 'Developer Programs Engineer',
-    gplus: 'http://plus.google.com/+ChrisCartland',
+    gplus: 'https://plus.google.com/+ChrisCartland',
   //  twitter: '@yourhandle',
   //  www: 'http://www.you.com',
   //  github: 'http://github.com/you'
