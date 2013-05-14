@@ -378,8 +378,9 @@ SlideDeck.prototype.loadConfig_ = function(config) {
       } else {
         var presenterHtml = [];
         for (var i = 0, p; p = presenters[i]; ++i) {
-          // presenterHtml.push(p.name + ' - ' + p.company);
-          presenterHtml.push(p.gplus);
+          // This appears on the title slide
+          presenterHtml.push(p.name + ' - ' + p.company);
+          // presenterHtml.push(p.gplus);
         }
         presenterHtml = presenterHtml.join('<br>');
         dataConfigPresenter.innerHTML = presenterHtml;
