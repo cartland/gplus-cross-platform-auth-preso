@@ -363,7 +363,7 @@ SlideDeck.prototype.loadConfig_ = function(config) {
       }
     } else {
       for (var i = 0, p; p = presenters[i]; ++i) {
-        html.push(p.name + ' - ' + p.company);
+        html.push(p.gplus);
       }
       html = html.join('<br>');
       if (dataConfigContact) {
@@ -373,7 +373,16 @@ SlideDeck.prototype.loadConfig_ = function(config) {
 
     var dataConfigPresenter = document.querySelector('[data-config-presenter]');
     if (dataConfigPresenter) {
-      dataConfigPresenter.innerHTML = html;
+      if (presenters.length == 1) {
+        dataConfigPresenter.innerHTML = html;
+      } else {
+        var presenterHtml = [];
+        for (var i = 0, p; p = presenters[i]; ++i) {
+          presenterHtml.push(p.name + ' - ' + p.company);
+        }
+        presenterHtml = presenterHtml.join('<br>');
+        dataConfigPresenter.innerHTML = presenterHtml;
+      }
       if (settings.eventInfo) {
         var date = settings.eventInfo.date;
         var dateInfo = date ? ' - <time>' + date + '</time>' : '';
