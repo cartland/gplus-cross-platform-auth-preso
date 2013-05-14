@@ -302,22 +302,22 @@ URL: https://code.google.com/p/io-2012-slides
     <article style="float:right; width:70%">
       <pre class="prettyprint" data-lang="android">
 
-mPlusClient = new PlusClient.Builder(this, this, this)
+<b>mPlusClient = new PlusClient.Builder(this, this, this)
   .setScopes(SCOPES).build();
 findViewById(R.id.sign_in_button)
-  .setOnClickListener(this);
+  .setOnClickListener(this);</b>
 </pre>
       <pre class="prettyprint" data-lang="android">
-mPlusClient.connect();
+<b>mPlusClient.connect();</b>
 </pre>
       <pre class="prettyprint" data-lang="xml">
-&lt;com.google.android.gms.common.SignInButton
+<b>&lt;com.google.android.gms.common.SignInButton
   android:id="@+id/sign_in_button"
   android:layout_width="wrap_content"
-  android:layout_height="wrap_content" /&gt;
+  android:layout_height="wrap_content" /&gt;</b>
 </pre>
       <pre class="prettyprint" data-lang="android">
-mPlusClient.disconnect();
+<b>mPlusClient.disconnect();</b>
 </pre>
     </article>
     <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
@@ -330,7 +330,7 @@ mPlusClient.disconnect();
     </hgroup>
     <article>
       <pre class="prettyprint" data-lang="android">
-public void onConnectionFailed(ConnectionResult result) {
+<b>public void onConnectionFailed(ConnectionResult result) {
   // Save the result and resolve the connection failure upon a user click.
   mConnectionResult = result;
 }
@@ -338,7 +338,7 @@ public void onConnectionFailed(ConnectionResult result) {
 public void onConnected() {
   Person current = mPlusClient.getCurrentPerson();
   String gplusId = current.getId();
-}
+}</b>
 </pre>
     </article>
     <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
@@ -376,7 +376,7 @@ public void onClick(View view) {
     </hgroup>
     <article>
       <pre class="prettyprint" data-lang="android">
-protected void onActivityResult(int requestCode,
+protected void <b>onActivityResult</b>(int requestCode,
                                 int responseCode, Intent intent) {
   if (requestCode == REQUEST_CODE_RESOLVE_ERR
         && responseCode == RESULT_OK) {
@@ -425,7 +425,7 @@ protected void onActivityResult(int requestCode,
     <article>
       <pre class="prettyprint" data-lang="objective-c">
 // In .m files as needed, or in your .pch file.
-#import &lt;GooglePlus/GooglePlus.h&gt;
+<b>#import &lt;GooglePlus/GooglePlus.h&gt;
 #import &lt;GoogleOpenSource/GoogleOpenSource.h&gt;
 
 // In AppDelegate.m
@@ -433,10 +433,10 @@ protected void onActivityResult(int requestCode,
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   GPPSignIn *signIn = [GPPSignIn sharedInstance];
   signIn.clientID = @"YOUR_CLIENT_ID"
-  signIn.scopes = @[kGTLAuthScopePlusLogin];
+  signIn.scopes = SCOPES;
   signIn.shouldFetchGoogleUserID = YES;
   signIn.delegate = self; // Implements GPPSignInDelegate protocol
-}
+}</b>
 </pre>
     </article>
     <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
@@ -459,7 +459,7 @@ protected void onActivityResult(int requestCode,
         <li>Create your own button following our branding guidelines</li>
         <li>Then explicitly call the following in the IBAction</li>
       <pre class="prettyprint" data-lang="objective-c">
-[[GPPSignIn sharedInstance] authenticate];
+<b>[[GPPSignIn sharedInstance] authenticate];</b>
 </pre>
     </article>
     <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
@@ -517,7 +517,7 @@ protected void onActivityResult(int requestCode,
     </hgroup>
     <article>
       <pre class="prettyprint" data-lang="HTML">
-&lt;span id="signinButton"&gt;
+<b>&lt;span id="signinButton"&gt;
   &lt;span
     class="g-signin"
     data-callback="signinCallback"
@@ -528,7 +528,7 @@ protected void onActivityResult(int requestCode,
 &lt;/span&gt;
 
 &lt;!-- Place plusone.js asynchronous JavaScript
-     just before your &lt;/body&gt; tag -->
+     just before your &lt;/body&gt; tag --></b>
 </pre>
     </article>
     <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
@@ -541,10 +541,10 @@ protected void onActivityResult(int requestCode,
     </hgroup>
     <article>
       <pre class="prettyprint" data-lang="JavaScript">
-function signinCallback(authResult) {
-  if (authResult['access_token']) {
+function <b>signinCallback(authResult)</b> {
+  <b>if (authResult['access_token']) {
     // Successfully authorized
-  } else if (authResult['error']) {
+  }</b> else if (authResult['error']) {
     // User is not signed in.
   }
 }
