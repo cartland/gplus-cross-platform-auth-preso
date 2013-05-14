@@ -31,7 +31,7 @@ var SLIDE_CONFIG = {
   }, {
     name: 'Francis Ma',
     company: 'Product Manager',
-    gplus: 'https://plus.google.com/110561195866999583986',
+    gplus: 'https://plus.google.com/+FrancisMa',
   //  twitter: '@yourhandle',
   //  www: 'http://www.you.com',
   //  github: 'http://github.com/you'
