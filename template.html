@@ -433,7 +433,7 @@ protected void <b>onActivityResult</b>(int requestCode,
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   GPPSignIn *signIn = [GPPSignIn sharedInstance];
   signIn.clientID = @"YOUR_CLIENT_ID"
-  signIn.scopes = SCOPES;
+  signIn.scopes = kScopes;
   signIn.shouldFetchGoogleUserID = YES;
   signIn.delegate = self; // Implements GPPSignInDelegate protocol
 }</b>
