@@ -52,33 +52,23 @@ URL: https://code.google.com/p/io-2012-slides
     <hgroup>
       <h2>Agenda</h2>
     </hgroup>
-    <article>
+    <article class="flexbox vcenter" class="larger">
       <ul>
         <li>"Auth" and Google+ Sign-In</li>
         <li>Auth Triangle: Your Client, Server, and Google</li>
         <li>Client auth models across Android, iOS, and Web</li>
         <li>Server auth</li>
         <li>Choosing the right one for you</li>
+        <li>Q&A: Submit and vote on questions here <a href="http://goo.gl/48LOh">http://goo.gl/48LOh</a></li>
       </ul>
     </article>
-    <aside class="note">
-      <section>
-        <ul>
-          <li>Point I wanted to make #1</li>
-          <li>Point I wanted to make #2</li>
-          <li>Point I wanted to make #3</li>
-          <li>Example <a href="#">link</a> in notes.</li>
-        </ul>
-        <p><b>Remember to say this tag line!</b></p>
-      </section>
-    </aside>
   </slide>
 
   <slide>
     <hgroup>
       <h2>Talking about "auth"</h2>
     </hgroup>
-    <article style="float: left; width: 50%">
+    <article class="flexbox vcenter" style="float: left; width: 50%">
       <ul>
         <li>Authentication</li>
         <ul>
@@ -90,8 +80,9 @@ URL: https://code.google.com/p/io-2012-slides
         </ul>
       </ul>
     </article>
-    <article style="float:right; width:50%">
-      <img width="100%" src="images/chart.png" class="reflect" alt="Identity and Permsision" title="Identity and Permsision"><br />
+    <article class="flexbox vcenter" style="float:right; width:50%; margin-top: -30px;">
+      <img width="250px" src="images/identification.png" alt="California Identification" title="California Identification"><br />
+      <img style="margin-left: 30px;" width="200px" src="images/io-badge.jpg" class="reflect" alt="Google I/O Badge" title="Google I/O Badge"><br />
     </article>
   </slide>
 
@@ -99,7 +90,7 @@ URL: https://code.google.com/p/io-2012-slides
     <hgroup>
       <h2>Don't Build Your Own Authentication!</h2>
     </hgroup>
-    <article style="float: left; width: 50%">
+    <article class="flexbox vcenter" style="float: left; width: 50%">
       <ul>
         <li>Lots to worry about</li>
         <ul>
@@ -136,7 +127,7 @@ URL: https://code.google.com/p/io-2012-slides
     <hgroup>
       <h2>Use An Identity Provider</h2>
     </hgroup>
-    <article style="float: left; width:50%">
+    <article class="flexbox vcenter" style="float: left; width:50%">
       <ul>
         <li>Easier for you and the user</li>
         <li>Can ask for authorization for additional features</li>
@@ -216,14 +207,14 @@ URL: https://code.google.com/p/io-2012-slides
     <hgroup>
       <h2>Structuring your API Project correctly is important!</h2>
     </hgroup>
-    <article>
+    <article class="flexbox vcenter">
       <ul>
         <li>Authorization is granted to your app, not a specific client</li>
         <li>For Android & Web:</li>
         <ul>
           <li>Single user consent across clients</li>
           <li>Google+ Sign-In automatically initializes clients with auth tokens, if available</li>
-          <li>Cross-platform Single Sign-On</li>
+          <li>Cross-platform Single Sign On</li>
         </ul>
       </ul>
     </article>
@@ -257,7 +248,7 @@ URL: https://code.google.com/p/io-2012-slides
     <hgroup>
       <h2>Client Auth</h2>
     </hgroup>
-    <article class="larger" style="float: left; width: 25%">
+    <article class="larger" style="float: left; width: 35%">
       <ul>
         <li>Android</li>
         <li>iOS</li>
@@ -266,7 +257,6 @@ URL: https://code.google.com/p/io-2012-slides
     </article>
     <article style="float:right; width:60%; margin-top: 75px;">
       <img width="100%" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth"><br />
-      <footer class="source">Client Auth</footer>
     </article>
   </slide>
 
@@ -274,7 +264,7 @@ URL: https://code.google.com/p/io-2012-slides
     <hgroup>
       <h2>Android: Client Auth</h2>
     </hgroup>
-    <article style="float: left; width: 50%">
+    <article class="flexbox vcenter" style="float: left; width: 50%">
       <ul>
         <li>Managed via Google Play services API</li>
         <ul>
@@ -285,7 +275,18 @@ URL: https://code.google.com/p/io-2012-slides
     </article>
     <article style="float:right; width:40%; margin-top:30px;">
       <img width="100%" src="images/android-client.png" class="reflect" alt="Android Client Auth" title="Android Client Auth"><br />
-      <footer class="source">Android Client Auth</footer>
+    </article>
+    <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Android: Client Auth</h2>
+      <h3>Connection Lifecycle</h3>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img style="height:80%; margin-top:-35%;" src="images/PlusClient-Lifecycle.png" class="reflect" alt="Resolution Lifecycle" title="Resolution Lifecycle">
+      <footer class="source">http://www.riskcompletefailure.com/2013/03/common-problems-with-google-sign-in-on.html</footer>
     </article>
     <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
   </slide>
@@ -301,22 +302,22 @@ URL: https://code.google.com/p/io-2012-slides
     <article style="float:right; width:70%">
       <pre class="prettyprint" data-lang="android">
 
-mPlusClient = new PlusClient.Builder(this, this, this)
+<b>mPlusClient = new PlusClient.Builder(this, this, this)
   .setScopes(SCOPES).build();
 findViewById(R.id.sign_in_button)
-  .setOnClickListener(this);
+  .setOnClickListener(this);</b>
 </pre>
       <pre class="prettyprint" data-lang="android">
-mPlusClient.connect();
+<b>mPlusClient.connect();</b>
 </pre>
       <pre class="prettyprint" data-lang="xml">
-&lt;com.google.android.gms.common.SignInButton
+<b>&lt;com.google.android.gms.common.SignInButton
   android:id="@+id/sign_in_button"
   android:layout_width="wrap_content"
-  android:layout_height="wrap_content" /&gt;
+  android:layout_height="wrap_content" /&gt;</b>
 </pre>
       <pre class="prettyprint" data-lang="android">
-mPlusClient.disconnect();
+<b>mPlusClient.disconnect();</b>
 </pre>
     </article>
     <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
@@ -329,7 +330,7 @@ mPlusClient.disconnect();
     </hgroup>
     <article>
       <pre class="prettyprint" data-lang="android">
-public void onConnectionFailed(ConnectionResult result) {
+<b>public void onConnectionFailed(ConnectionResult result) {
   // Save the result and resolve the connection failure upon a user click.
   mConnectionResult = result;
 }
@@ -337,7 +338,7 @@ public void onConnectionFailed(ConnectionResult result) {
 public void onConnected() {
   Person current = mPlusClient.getCurrentPerson();
   String gplusId = current.getId();
-}
+}</b>
 </pre>
     </article>
     <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
@@ -375,7 +376,7 @@ public void onClick(View view) {
     </hgroup>
     <article>
       <pre class="prettyprint" data-lang="android">
-protected void onActivityResult(int requestCode,
+protected void <b>onActivityResult</b>(int requestCode,
                                 int responseCode, Intent intent) {
   if (requestCode == REQUEST_CODE_RESOLVE_ERR
         && responseCode == RESULT_OK) {
@@ -404,7 +405,7 @@ protected void onActivityResult(int requestCode,
     <hgroup>
       <h2>iOS: Client Auth</h2>
     </hgroup>
-    <article style="float: left; width: 50%">
+    <article class="flexbox vcenter" style="float: left; width: 50%">
       <ul>
         <li>Integrate with Google+ iOS SDK</li>
         <li>SDK handles auth flows and token management</li>
@@ -412,7 +413,6 @@ protected void onActivityResult(int requestCode,
     </article>
     <article style="float:right; width:40%; margin-top:30px;">
       <img width="100%" src="images/ios-client.png" class="reflect" alt="iOS Client Auth" title="iOS Client Auth">
-      <footer class="source">iOS Client Auth</footer>
     </article>
     <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
   </slide>
@@ -425,7 +425,7 @@ protected void onActivityResult(int requestCode,
     <article>
       <pre class="prettyprint" data-lang="objective-c">
 // In .m files as needed, or in your .pch file.
-#import &lt;GooglePlus/GooglePlus.h&gt;
+<b>#import &lt;GooglePlus/GooglePlus.h&gt;
 #import &lt;GoogleOpenSource/GoogleOpenSource.h&gt;
 
 // In AppDelegate.m
@@ -433,10 +433,10 @@ protected void onActivityResult(int requestCode,
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   GPPSignIn *signIn = [GPPSignIn sharedInstance];
   signIn.clientID = @"YOUR_CLIENT_ID"
-  signIn.scopes = @[@"https://www.googleapis.com/auth/plus.login"];
+  signIn.scopes = kScopes;
   signIn.shouldFetchGoogleUserID = YES;
   signIn.delegate = self; // Implements GPPSignInDelegate protocol
-}
+}</b>
 </pre>
     </article>
     <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
@@ -449,18 +449,17 @@ protected void onActivityResult(int requestCode,
     </hgroup>
     <article>
       <ul>
-        <li>Use the button provided by the SDK</li>
-        <ul>
-          <li>Add a button to your view</li>
-          <li>Remove the default label</li>
-          <li>Set custom class to GPPSignIn</li>
-          <li>SDK localizes button and manages authflow</li>
-        </ul>
-        <p>OR</p>
+        <li>Add a button to your view</li>
+        <!-- <li>Remove the default label</li> -->
+        <li>Set custom class to GPPSignIn</li>
+        <li>SDK localizes button and manages authflow</li>
+        <p>
+        <p>
+        OR
         <li>Create your own button following our branding guidelines</li>
         <li>Then explicitly call the following in the IBAction</li>
       <pre class="prettyprint" data-lang="objective-c">
-[[GPPSignIn sharedInstance] authenticate];
+<b>[[GPPSignIn sharedInstance] authenticate];</b>
 </pre>
     </article>
     <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
@@ -498,16 +497,15 @@ protected void onActivityResult(int requestCode,
     <hgroup>
       <h2>Web: Client Auth</h2>
     </hgroup>
-    <article style="float: left; width: 50%">
+    <article class="flexbox vcenter" style="float: left; width: 50%">
       <ul>
         <li>Simply include the JavaScript client</li>
         <li>Add Google+ Sign-In Button</li>
         <li>Handle auth callback</li>
       </ul>
     </article>
-    <article style="float:right; width:50%; margin-top: 75px;">
-      <img width="100%" src="images/web-client.png" class="reflect" alt="Web Client Auth" title="Web Client Auth">
-      <footer class="source">Web Client Auth</footer>
+    <article style="float:right; width:50%; margin-top: 150px;">
+      <img width="100%" src="images/web-client.png" alt="Web Client Auth" title="Web Client Auth">
     </article>
     <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
   </slide>
@@ -519,19 +517,18 @@ protected void onActivityResult(int requestCode,
     </hgroup>
     <article>
       <pre class="prettyprint" data-lang="HTML">
-&lt;span id="signinButton"&gt;
+<b>&lt;span id="signinButton"&gt;
   &lt;span
     class="g-signin"
     data-callback="signinCallback"
     data-clientid="CLIENT_ID"
     data-cookiepolicy="single_host_origin"
-    data-requestvisibleactions="http://schemas.google.com/AddActivity"
     data-scope="https://www.googleapis.com/auth/plus.login"&gt;
   &lt;/span&gt;
 &lt;/span&gt;
 
 &lt;!-- Place plusone.js asynchronous JavaScript
-     just before your &lt;/body&gt; tag -->
+     just before your &lt;/body&gt; tag --></b>
 </pre>
     </article>
     <img class="corner-placemark" src="images/client-auth.png" class="reflect" alt="Client Auth" title="Client Auth">
@@ -544,10 +541,10 @@ protected void onActivityResult(int requestCode,
     </hgroup>
     <article>
       <pre class="prettyprint" data-lang="JavaScript">
-function signinCallback(authResult) {
-  if (authResult['access_token']) {
+function <b>signinCallback(authResult)</b> {
+  <b>if (authResult['access_token']) {
     // Successfully authorized
-  } else if (authResult['error']) {
+  }</b> else if (authResult['error']) {
     // User is not signed in.
   }
 }
@@ -567,16 +564,43 @@ function signinCallback(authResult) {
     <hgroup>
       <h2>Server Auth</h2>
     </hgroup>
-    <article class="larger" style="float: left; width: 25%">
+    <article class="larger" style="float: left; width: 35%">
       <ul>
-        <li>Android / iOS</li>
+        <li>iOS</li>
+        <li>Android</li>
         <li>Web</li>
       </ul>
     </article>
     <article style="float:right; width:60%; margin-top: 75px;">
       <img width="100%" src="images/server-auth.png" class="reflect" alt="Server Auth" title="Server Auth"><br />
-      <footer class="source">Server Auth</footer>
     </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>iOS Auth To Server</h2>
+      <h3>Send Access Token To Server</h3>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Send tokens securely</li>
+        <li>Access Tokens are bearer tokens and anyone can use them</li>
+        <li>Access Tokens last one hour</li>
+      </ul>
+      <pre class="prettyprint" data-lang="Objective-C">
+- (void)finishedWithAuth:(GTMOAuth2Authentication *)auth
+                   error:(NSError *)error {
+  <b>NSString *accessToken = auth.accessToken;</b>
+  if (error) {
+    signInAuthStatus_.text =
+        [NSString stringWithFormat:@"Status: Authentication error: %@", error];
+    return;
+  }
+  [self reportAuthStatus];
+}
+</pre>
+    </article>
+    <img class="corner-placemark" src="images/server-auth.png" class="reflect" alt="Server Auth" title="Server Auth">
   </slide>
 
   <slide>
@@ -599,33 +623,6 @@ try {
   // Recover
 } catch (Exception e) {
   throw new RuntimeException(e);
-}
-</pre>
-    </article>
-    <img class="corner-placemark" src="images/server-auth.png" class="reflect" alt="Server Auth" title="Server Auth">
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>iOS Auth To Server</h2>
-      <h3>Send access token to server</h3>
-    </hgroup>
-    <article>
-      <ul>
-        <li>Send tokens securely</li>
-        <li>Access Tokens are bearer tokens and anyone can use them</li>
-        <li>Access Tokens last one hour</li>
-      </ul>
-      <pre class="prettyprint" data-lang="Objective-C">
-- (void)finishedWithAuth:(GTMOAuth2Authentication *)auth
-                   error:(NSError *)error {
-  <b>NSString *accessToken = auth.accessToken;</b>
-  if (error) {
-    signInAuthStatus_.text =
-        [NSString stringWithFormat:@"Status: Authentication error: %@", error];
-    return;
-  }
-  [self reportAuthStatus];
 }
 </pre>
     </article>
@@ -662,10 +659,42 @@ gplus_id = result['user_id']
 
   <slide>
     <hgroup>
+      <h2>Android Auth To Server</h2>
+      <h3>Send One-Time Authorization Code<h3>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Code can only be used by your server</li>
+        <li>Code can get an Access Token and a Refresh Token</li>
+        <li>Refresh Tokens do not expire</li>
+      </ul>
+      <pre class="prettyprint" data-lang="Android">
+try {
+  <b>String code = GoogleAuthUtil.getToken(this,
+      mPlusClient.getAccountName(),
+      "oauth2:server:client_id:" + CLIENT_ID
+      + ":api_scope:" + TextUtils.join(' ', SCOPES));</b>
+} catch (UserRecoverableAuthException e) {
+  // Recover
+} catch (Exception e) {
+  throw new RuntimeException(e);
+}
+</pre>
+    </article>
+    <img class="corner-placemark" src="images/server-auth.png" class="reflect" alt="Server Auth" title="Server Auth">
+  </slide>
+
+  <slide>
+    <hgroup>
       <h2>Web Auth To Server</h2>
       <h3>Send One-Time Authorization Code<h3>
     </hgroup>
     <article>
+      <ul>
+        <li>Code can only be used by your server</li>
+        <li>Code can get an Access Token and a Refresh Token</li>
+        <li>Refresh Tokens do not expire</li>
+      </ul>
       <pre class="prettyprint" data-lang="JavaScript">
 function signinCallback(authResult) {
   if (authResult['access_token']) {
@@ -684,16 +713,7 @@ function signinCallback(authResult) {
     <hgroup>
       <h2>Server: Exchange Authorization Code</h2>
     </hgroup>
-    <article>
-      <ul>
-        <li>More secure because code can only be used by your server</li>
-        <li>Can ask for offline access and get a refresh token</li>
-        <ul>
-          <li>Access Token: Expires after one hour</li>
-          <li>Refresh Token: Does not expire</li>
-        </ul>
-        <li></li>
-      </ul>
+    <article class="flexbox vcenter">
       <pre class="prettyprint" data-lang="Ruby">
 $authorization.code = request.body.read
 <b>$authorization.fetch_access_token!</b>
@@ -706,7 +726,7 @@ code = request.data
 $code = $request->getContent();
 <b>$client->authenticate($code);</b>
 </pre>
-Full code, including Java and C#, available in our Quickstarts
+Full code, including Java and C#/.NET, available in our Quickstarts
     </article>
     <img class="corner-placemark" src="images/server-auth.png" class="reflect" alt="Server Auth" title="Server Auth">
   </slide>
@@ -715,27 +735,29 @@ Full code, including Java and C#, available in our Quickstarts
     <hgroup>
       <h2>Ways To Enable Server-Side Auth</h2>
     </hgroup>
-    <article style="font-size: 300%; margin-top: 60px;">
-      <table>
+    <article style="margin-top: 60px;">
+      <table style="font-size: 280%;">
         <tr>
           <th style="font-size: 50%"></th>
-          <th style="font-size: 50%">Android</th>
           <th style="font-size: 50%">iOS</th>
+          <th style="font-size: 50%">Android</th>
           <th style="font-size: 50%">Web</th>
         </tr>
         <tr>
-          <td style="font-size: 40%">Access Token To Server</td>
+          <td style="font-size: 40%">Verify Access Token</td>
           <td style="font-size: 40%"><font color="green">✓</font></td>
           <td style="font-size: 40%"><font color="green">✓</font></td>
-          <td style="font-size: 40%"><font color="aaaa00">Optional</font></td>
+          <td style="font-size: 40%"><font color="green">✓</font></td>
         </tr>
         <tr>
-          <td style="font-size: 40%">One-Time Code To Upgrade</td>
+          <td style="font-size: 40%">Exchange One-Time Code *</td>
           <td style="font-size: 40%">-</td>
-          <td style="font-size: 40%">-</td>
+          <td style="font-size: 40%"><font color="green">✓ (new)</font></td>
           <td style="font-size: 40%"><font color="green">✓</font></td>
         </tr>
       </table>
+      <p><p>
+      * The one-time code can retrieve a refresh token if you ask for offline access
     </article>
     <img class="corner-placemark" src="images/server-auth.png" class="reflect" alt="Server Auth" title="Server Auth">
   </slide>
@@ -751,10 +773,9 @@ Full code, including Java and C#, available in our Quickstarts
         <ul>
           <li>e.g Need to consider ways to merge user identities across different systems</li>
         </ul>
-        <li><b>How to Offer Google+ Sign-In Alongside Other Social Sign-In Services</b></li>
+        <li>Talk by Ian Barber</li>
         <ul>
-          <li>Talk by Ian Barber</li>
-          <li>Room 3, May 16, 5:20PM - 6:00PM</li>
+          <li><b>How to Offer Google+ Sign-In Alongside Other Social Sign-In Services</b></li>
         </ul>
       </ul>
     </article>
@@ -774,7 +795,9 @@ Full code, including Java and C#, available in our Quickstarts
         <li>Google+ makes authentication easy</li>
         <li>Auth models depend on your architecture</li>
         <li>Learn more and check out our Quickstarts and PhotoHunt at
-            <a href="https://developers.google.com/+/">https://developers.google.com/+/</a></li>
+            <a href="https://developers.google.com/+/">https://developers.google.com/+/</a> and
+            <a href="https://developers.google.com/+/">https://github.com/googleplus</a>
+        </li>
       </ul>
     </article>
   </slide>
@@ -783,6 +806,7 @@ Full code, including Java and C#, available in our Quickstarts
     <aside class="gdbar right"><img src="images/google_developers_icon_128.png"></aside>
     <article class="flexbox vleft auto-fadein">
       <h2>&lt;Thank You!&gt;</h2>
+      <h3>Q&A <a style="color: white;" href="http://goo.gl/48LOh">http://goo.gl/48LOh</a>
       <p>developers.google.com/+</p>
     </article>
     <p class="auto-fadein" data-config-contact>
