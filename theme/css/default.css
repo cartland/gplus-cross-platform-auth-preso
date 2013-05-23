@@ -301,7 +301,7 @@ slides > slide.dark {
 /* line 135, ../scss/default.scss */
 slides > slide:not(.nobackground):before {
   font-size: 12pt;
-  content: "";
+  content: "Q&A http://goo.gl/48LOh";
   position: absolute;
   bottom: 20px;
   left: 60px;
